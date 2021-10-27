@@ -1,0 +1,12 @@
+/public
+/config
+/coverage
+/tmp
+/node_modules
+/.vscode
+/.idea
+jest.config.js
+package-lock.json
+package.json
+yarn.lock
+README.md
