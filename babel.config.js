@@ -37,6 +37,7 @@ module.exports = {
     ['@babel/preset-env', presetEnv],
     ['@babel/preset-react', presetReact],
     ['@babel/preset-typescript', presetTypescript],
+    '@linaria',
   ],
   plugins: [
     isDevelopment && 'react-refresh/babel',

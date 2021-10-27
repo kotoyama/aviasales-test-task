@@ -7,6 +7,8 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const paths = require('./paths')
 const { moduleFileExtensions } = require('./paths')
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 module.exports = {
   entry: paths.appIndexJs,
   output: {
@@ -26,12 +28,20 @@ module.exports = {
       {
         test: /\.(js|jsx|ts|tsx)$/,
         include: paths.appSrc,
-        loader: require.resolve('babel-loader'),
-        options: {
-          cacheDirectory: true,
-          cacheCompression: false,
-          compact: false,
-        },
+        use: [
+          {
+            loader: require.resolve('babel-loader'),
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+              compact: false,
+            },
+          },
+          {
+            loader: require.resolve('@linaria/webpack-loader'),
+            options: { sourceMap: isDevelopment },
+          },
+        ],
       },
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
