@@ -3,7 +3,8 @@ import { useStore } from 'effector-react'
 import { styled } from '@linaria/react'
 
 import { Card } from '../containers'
-import { $tickets, $loading } from '../../model/private'
+import { $loading } from '../../model/private'
+import { $tickets } from '../../model/public'
 
 export const TicketsList: React.FC = () => {
   const tickets = useStore($tickets)
