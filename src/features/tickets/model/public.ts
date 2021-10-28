@@ -2,7 +2,6 @@ import { attach } from 'effector'
 import { nanoid } from 'nanoid'
 import { root } from 'root'
 
-import { ticketsUpdated } from './private'
 import { getSearchIdReqFx } from '../api'
 import { Ticket, TicketEntity } from '../types'
 
@@ -10,7 +9,9 @@ export const tickets = root.domain('tickets-public')
 
 export const $tickets = tickets.store<Ticket[]>([])
 
-export const normalizeTickets = ticketsUpdated.prepend(
+export const ticketsUpdated = tickets.event<Ticket[]>()
+
+export const ticketsNormalized = ticketsUpdated.prepend(
   (tickets: TicketEntity[]) =>
     tickets.map((ticket) => ({
       ...ticket,
