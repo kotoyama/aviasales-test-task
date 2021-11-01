@@ -30,7 +30,7 @@ export const ticketsNormalized = ticketsUpdated.prepend(
         (acc, { duration }) => acc + duration,
         0,
       ),
-      stopsCount: ticket.segments.reduce<number[]>(
+      stops: ticket.segments.reduce<number[]>(
         (acc, { stops }) => [...acc, stops.length],
         [],
       ),

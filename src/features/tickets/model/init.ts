@@ -1,5 +1,7 @@
 import { forward, guard, sample } from 'effector'
 
+import { filtersUpdated } from 'features/filters'
+
 import { loadSearchIdFx } from './public'
 import {
   $loading,
@@ -37,4 +39,9 @@ sample({
   clock: loadTicketsFx.doneData,
   fn: (res) => res.body.tickets,
   target: ticketsNormalized,
+})
+
+forward({
+  from: ticketsUpdated,
+  to: filtersUpdated,
 })

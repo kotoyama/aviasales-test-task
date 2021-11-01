@@ -33,7 +33,7 @@ export const buttonGroup: SortGroup = {
   [SortType.OPTIMAL]: {
     id: SortType.OPTIMAL,
     label: 'Оптимальный',
-    field: 'stopsCount',
+    field: 'stops',
     active: false,
   },
 }

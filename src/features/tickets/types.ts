@@ -33,5 +33,5 @@ export interface Ticket extends TicketEntity {
   id: string
   logo: string
   totalDuration: number
-  stopsCount: number[]
+  stops: number[]
 }
