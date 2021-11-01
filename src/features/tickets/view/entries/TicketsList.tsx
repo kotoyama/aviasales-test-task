@@ -3,26 +3,25 @@ import { useStore } from 'effector-react'
 import { styled } from '@linaria/react'
 
 import { Card } from '../containers'
-import { $loading } from '../../model/private'
-import { $tickets } from '../../model/public'
+import { $loading, $results } from '../../model/private'
 
 export const TicketsList: React.FC = () => {
-  const tickets = useStore($tickets)
+  const tickets = useStore($results)
   const loading = useStore($loading)
 
   if (loading) return null
 
   return (
-    <Wrap>
+    <List>
       {tickets.slice(0, 5).map((ticket) => (
         <Card key={ticket.id} ticket={ticket} />
       ))}
       {tickets.length === 0 && <NotFound>Ничего не найдено</NotFound>}
-    </Wrap>
+    </List>
   )
 }
 
-const Wrap = styled.ul`
+const List = styled.ul`
   grid-column: 2 / 3;
 
   @media (max-width: 768px) {

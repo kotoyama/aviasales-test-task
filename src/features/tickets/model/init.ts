@@ -1,12 +1,14 @@
 import { forward, guard, sample } from 'effector'
 
+import { loadSearchIdFx } from './public'
 import {
+  $loading,
+  $searchId,
   $tickets,
-  loadSearchIdFx,
-  ticketsUpdated,
+  loadTicketsFx,
   ticketsNormalized,
-} from './public'
-import { $searchId, $loading, loadTicketsFx } from './private'
+  ticketsUpdated,
+} from './private'
 
 const loadingContinues = guard(loadTicketsFx.doneData, {
   filter: (res) => !res.body.stop,

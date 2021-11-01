@@ -10,17 +10,17 @@ type Props = {
 }
 
 export const Card: React.FC<Props> = React.memo(({ ticket }) => (
-  <Wrap>
+  <Item>
     <Header price={ticket.price} logo={ticket.logo} carrier={ticket.carrier} />
-    <InnerWrap>
+    <Segments>
       {ticket.segments.map((segment) => (
         <Segment key={nanoid()} segment={segment} />
       ))}
-    </InnerWrap>
-  </Wrap>
+    </Segments>
+  </Item>
 ))
 
-const Wrap = styled.li`
+const Item = styled.li`
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
@@ -29,7 +29,7 @@ const Wrap = styled.li`
   background-color: var(--color-white);
 `
 
-const InnerWrap = styled.div`
+const Segments = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
