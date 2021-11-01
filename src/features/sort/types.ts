@@ -6,24 +6,34 @@ export enum SortType {
   OPTIMAL = 'optimal',
 }
 
-type SortTypeMeta = {
-  [key in SortType]: {
-    field: keyof Ticket
-    label: string
-  }
+export interface SortButton {
+  id: SortType
+  label: string
+  active: boolean
+  field: keyof Ticket
 }
 
-export const sortTypeMeta: SortTypeMeta = {
+type SortGroup = {
+  [key in SortType]: SortButton
+}
+
+export const buttonGroup: SortGroup = {
   [SortType.FASTEST]: {
-    field: 'totalDuration',
+    id: SortType.FASTEST,
     label: 'Самый быстрый',
+    field: 'totalDuration',
+    active: true,
   },
   [SortType.CHEAPEST]: {
-    field: 'price',
+    id: SortType.CHEAPEST,
     label: 'Самый дешёвый',
+    field: 'price',
+    active: false,
   },
   [SortType.OPTIMAL]: {
-    field: 'stopsCount',
+    id: SortType.OPTIMAL,
     label: 'Оптимальный',
+    field: 'stopsCount',
+    active: false,
   },
 }

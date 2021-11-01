@@ -25,16 +25,18 @@
   --color-grayblue: #9abbce;
   --color-lightblue: #f3f7fa;
   --color-transparent: rgba(0, 0, 0, 0.1);
+  --color-blue-transparent: rgba(33, 150, 243, 0.3);
 
   /* global */
   --font-size-main: 12px;
   --font-weight-main: 600;
   --line-height-main: 1.7;
+  --border-radius-main: 5px;
   --font-family-main: 'OpenSans', sans-serif;
   --color-bg-main: var(--color-lightblue);
   --color-text-main: var(--color-black);
   --box-shadow-main: 0px 2px 8px var(--color-transparent);
-  --border-radius-main: 5px;
+  --color-button-focus: var(--color-blue-transparent);
 }
 
 *,
@@ -73,4 +75,9 @@ li {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
 }

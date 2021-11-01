@@ -3,10 +3,12 @@ import { guard, sample } from 'effector'
 import { sortBy } from 'lib/sortBy'
 import { $tickets, ticketsUpdated, ticketsNormalized } from 'features/tickets'
 
-import { $sortType, sortTypeChanged } from './private'
-import { sortTypeMeta } from '../types'
+import { $sortType, $buttonGroup, sortTypeChanged } from './private'
+import { buttonGroup } from '../types'
 
-$sortType.on(sortTypeChanged, (_, payload) => payload)
+$buttonGroup.on(sortTypeChanged, (buttons, type) =>
+  buttons.map((item) => ({ ...item, active: item.id === type })),
+)
 
 sample({
   clock: guard({
@@ -20,6 +22,6 @@ sample({
 sample({
   clock: sortTypeChanged,
   source: $tickets,
-  fn: (tickets, type) => sortBy(tickets, sortTypeMeta[type].field),
+  fn: (tickets, type) => sortBy(tickets, buttonGroup[type].field),
   target: ticketsUpdated,
 })
