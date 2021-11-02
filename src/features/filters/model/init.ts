@@ -66,12 +66,12 @@ forward({
 split({
   source: filterChanged,
   match: {
+    check: (id) => id === FilterType.ALL_TRANSFERS,
     toggle: (id) => id !== FilterType.ALL_TRANSFERS,
-    checkAll: (id) => id === FilterType.ALL_TRANSFERS,
   },
   cases: {
+    check: checkAllFilter,
     toggle: toggleStopFilter,
-    checkAll: checkAllFilter,
   },
 })
 

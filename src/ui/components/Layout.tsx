@@ -15,5 +15,4 @@ const Wrap = styled.div`
 const InnerWrap = styled.div`
   width: 80%;
   margin: 0 auto;
-  padding: 0 10px;
 `

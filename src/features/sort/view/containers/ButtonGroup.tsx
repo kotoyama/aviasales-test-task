@@ -17,5 +17,11 @@ export const ButtonGroup: React.FC = () => (
 const StyledButtonGroup = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom: 20px; // TODO: убрать потом
+  grid-column: 2 / 3;
+  grid-row: span 1;
+
+  @media (max-width: 768px) {
+    grid-column: 1;
+    grid-row: 2 / 3;
+  }
 `

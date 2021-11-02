@@ -24,7 +24,7 @@ const Item = styled.li`
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 5px;
+  border-radius: var(--border-radius-main);
   box-shadow: var(--box-shadow-main);
   background-color: var(--color-white);
 `
