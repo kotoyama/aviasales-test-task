@@ -5,19 +5,12 @@ import { Icon } from './Icon'
 
 type Props = {
   label: string
-  handleChange: (id: string) => void
 } & React.InputHTMLAttributes<HTMLInputElement>
 
 export const Checkbox: React.FC<Props> = React.memo(
-  ({ id, checked, label, handleChange, ...props }) => (
+  ({ id, checked, label, ...props }) => (
     <Label htmlFor={id}>
-      <Input
-        id={id}
-        type="checkbox"
-        checked={checked}
-        onChange={() => id && handleChange(id)}
-        {...props}
-      />
+      <Input id={id} type="checkbox" checked={checked} {...props} />
       <StyledCheckbox checked={checked || false}>
         <Icon icon="check" />
       </StyledCheckbox>

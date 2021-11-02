@@ -5,7 +5,8 @@ export enum FilterType {
 }
 
 export interface Filter {
-  id: FilterType
+  id: string
+  type: FilterType
   label: string
   active: boolean
   stops: number
@@ -14,6 +15,7 @@ export interface Filter {
 export const initFilters: Filter[] = [
   {
     id: FilterType.ALL_TRANSFERS,
+    type: FilterType.ALL_TRANSFERS,
     label: 'Все',
     active: true,
     stops: -1,
