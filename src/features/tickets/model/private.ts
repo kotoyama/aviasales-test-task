@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid'
 import { root } from 'root'
 
 import { $sortType, buttonGroup } from 'features/sort'
+import { $activatedFilters } from 'features/filters'
 import { sortBy } from 'lib/sortBy'
 
 import { getTicketsReqFx } from '../api'
@@ -16,8 +17,16 @@ export const $loading = tickets.store(true)
 
 export const ticketsUpdated = tickets.event<Ticket[]>()
 
-export const $results = combine($tickets, $sortType, (tickets, type) =>
-  sortBy(tickets, buttonGroup[type].field),
+export const $results = combine(
+  $tickets,
+  $sortType,
+  $activatedFilters,
+  (tickets, type, filters) => {
+    const results = tickets.filter((item) =>
+      item.stops.every((stop) => filters.includes(stop)),
+    )
+    return sortBy(results, buttonGroup[type].field)
+  },
 )
 
 export const ticketsNormalized = ticketsUpdated.prepend(
