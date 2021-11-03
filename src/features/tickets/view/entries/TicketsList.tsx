@@ -2,21 +2,24 @@ import React from 'react'
 import { useStore } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { Card } from '../containers'
-import { $loading, $results } from '../../model/private'
+import { Card, Placeholder } from '../containers'
+import { $firstBundleLoaded, $loading, $results } from '../../model/private'
 
 export const TicketsList: React.FC = () => {
-  const tickets = useStore($results)
+  const bundleLoaded = useStore($firstBundleLoaded)
   const loading = useStore($loading)
-
-  if (loading) return null
+  const tickets = useStore($results)
 
   return (
     <List>
-      {tickets.slice(0, 5).map((ticket) => (
-        <Card key={ticket.id} ticket={ticket} />
-      ))}
-      {tickets.length === 0 && <NotFound>Ничего не найдено</NotFound>}
+      {bundleLoaded
+        ? tickets
+            .slice(0, 5)
+            .map((ticket) => <Card key={ticket.id} ticket={ticket} />)
+        : [...Array(5)].map((_, i) => <Placeholder key={i} />)}
+      {tickets.length === 0 && !loading && (
+        <NotFound>Ничего не найдено</NotFound>
+      )}
     </List>
   )
 }

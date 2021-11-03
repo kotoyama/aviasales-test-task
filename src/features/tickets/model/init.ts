@@ -7,9 +7,9 @@ import {
   $loading,
   $searchId,
   $tickets,
-  loadTicketsFx,
   ticketsNormalized,
   ticketsUpdated,
+  loadTicketsFx,
 } from './private'
 
 const loadingContinues = guard(loadTicketsFx.doneData, {

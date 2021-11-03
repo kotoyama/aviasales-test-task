@@ -17,6 +17,8 @@ export const $loading = tickets.store(true)
 
 export const ticketsUpdated = tickets.event<Ticket[]>()
 
+export const $firstBundleLoaded = $tickets.map((items) => items.length > 0)
+
 export const $results = combine(
   $tickets,
   $sortType,
@@ -31,15 +33,15 @@ export const $results = combine(
 
 export const ticketsNormalized = ticketsUpdated.prepend(
   (tickets: TicketEntity[]) =>
-    tickets.map((ticket) => ({
-      ...ticket,
+    tickets.map((item) => ({
+      ...item,
       id: nanoid(),
-      logo: `${process.env.PICS_CDN_URL}/${ticket.carrier}.png`,
-      totalDuration: ticket.segments.reduce(
+      logo: `${process.env.PICS_CDN_URL}/${item.carrier}.png`,
+      totalDuration: item.segments.reduce(
         (acc, { duration }) => acc + duration,
         0,
       ),
-      stops: ticket.segments.reduce<number[]>(
+      stops: item.segments.reduce<number[]>(
         (acc, { stops }) => [...acc, stops.length],
         [],
       ),
