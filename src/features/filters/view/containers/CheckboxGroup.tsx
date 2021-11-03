@@ -8,7 +8,7 @@ import { $filters, filterChanged } from '../../model/private'
 
 export const CheckboxGroup: React.FC = () => (
   <StyledCheckboxGroup role="group">
-    {useList($filters, ({ id, type, label, active }) => (
+    {useList($filters, ({ id, label, active }) => (
       <Checkbox
         id={id}
         label={label}

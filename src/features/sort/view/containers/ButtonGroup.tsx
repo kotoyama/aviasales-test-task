@@ -8,8 +8,13 @@ import { $buttonGroup } from '../../model/public'
 
 export const ButtonGroup: React.FC = () => (
   <StyledButtonGroup role="group">
-    {useList($buttonGroup, ({ id, ...props }) => (
-      <ButtonGroupItem id={id} onClick={() => sortTypeChanged(id)} {...props} />
+    {useList($buttonGroup, ({ id, label, active }) => (
+      <ButtonGroupItem
+        id={id}
+        label={label}
+        active={active}
+        onClick={() => sortTypeChanged(id)}
+      />
     ))}
   </StyledButtonGroup>
 )

@@ -7,16 +7,14 @@ type Props = {
   label: string
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-export const Checkbox: React.FC<Props> = React.memo(
-  ({ id, checked, label, ...props }) => (
-    <Label htmlFor={id}>
-      <Input id={id} type="checkbox" checked={checked} {...props} />
-      <StyledCheckbox checked={checked || false}>
-        <Icon icon="check" />
-      </StyledCheckbox>
-      {label}
-    </Label>
-  ),
+export const Checkbox: React.FC<Props> = ({ id, checked, label, ...props }) => (
+  <Label htmlFor={id}>
+    <Input id={id} type="checkbox" checked={checked} {...props} />
+    <StyledCheckbox checked={checked || false}>
+      <Icon icon="check" />
+    </StyledCheckbox>
+    {label}
+  </Label>
 )
 
 const Label = styled.label`
