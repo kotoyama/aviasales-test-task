@@ -2,6 +2,7 @@ import React from 'react'
 import { styled } from '@linaria/react'
 
 import { plural } from 'lib/plural'
+import { formatDuration, getTimeInterval } from 'lib/date'
 
 import { SegmentEntity } from '../../types'
 
@@ -15,11 +16,13 @@ export const Segment: React.FC<Props> = React.memo(({ segment }) => (
       <Title>
         {segment.origin} – {segment.destination}
       </Title>
-      <Description>10:45 – 08:00</Description>
+      <Description>
+        {getTimeInterval(segment.date, segment.duration)}
+      </Description>
     </RowWrap>
     <RowWrap>
       <Title>В Пути</Title>
-      <Description>21ч 15м</Description>
+      <Description>{formatDuration(segment.duration)}</Description>
     </RowWrap>
     <RowWrap>
       <Title>
