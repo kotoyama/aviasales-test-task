@@ -3,8 +3,7 @@ import { styled } from '@linaria/react'
 
 import { plural } from 'lib/plural'
 import { formatDuration, getTimeInterval } from 'lib/date'
-
-import { SegmentEntity } from '../../types'
+import { SegmentEntity } from 'entities'
 
 type Props = {
   segment: SegmentEntity

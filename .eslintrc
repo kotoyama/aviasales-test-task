@@ -49,7 +49,7 @@
         "newlinesBetween": "always",
         "groups": [
           "module",
-          ["/^features/", "/^app/", "/^lib/", "/^ui/"],
+          ["/^features/", "/^entities/", "/^app/", "/^lib/", "/^ui/"],
           ["parent", "sibling", "index"]
         ],
         "alphabetize": {

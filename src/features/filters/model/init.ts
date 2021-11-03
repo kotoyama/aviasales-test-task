@@ -1,8 +1,8 @@
 import { forward, sample, split } from 'effector'
 
 import { plural } from 'lib/plural'
+import { FilterType } from 'entities'
 
-import { FilterType } from '../types'
 import { filtersUpdated } from './public'
 import {
   $filters,

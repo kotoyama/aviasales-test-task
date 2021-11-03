@@ -1,6 +1,6 @@
 import { root } from 'root'
 
-import { Filter, FilterType, initFilters } from '../types'
+import { Filter, FilterType, initFilters } from 'entities'
 
 export const filters = root.domain('filters')
 

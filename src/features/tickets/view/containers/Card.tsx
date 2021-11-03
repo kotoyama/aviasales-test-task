@@ -2,7 +2,8 @@ import React from 'react'
 import { styled } from '@linaria/react'
 import { nanoid } from 'nanoid'
 
-import { Ticket } from '../../types'
+import { Ticket } from 'entities'
+
 import { Header, Segment, Wrapper } from '../parts'
 
 type Props = {

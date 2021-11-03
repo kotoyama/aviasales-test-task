@@ -1,9 +1,8 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
+import { Ticket } from 'entities'
 import { formatPrice } from 'lib/price'
-
-import { Ticket } from '../../types'
 
 type Props = Omit<Ticket, 'id' | 'segments' | 'totalDuration' | 'stops'>
 

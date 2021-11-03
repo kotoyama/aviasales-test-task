@@ -1,16 +1,22 @@
 import React from 'react'
+import { useStore } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { CheckboxGroup } from '../containers'
+import { $firstBundleLoaded } from 'features/app'
 
-export const Filters: React.FC = () => (
-  <Wrap>
-    <InnerWrap>
-      <Title>Количество пересадок</Title>
-      <CheckboxGroup />
-    </InnerWrap>
-  </Wrap>
-)
+import { CheckboxGroup, Placeholder } from '../containers'
+
+export const Filters: React.FC = () => {
+  const bundleLoaded = useStore($firstBundleLoaded)
+  return (
+    <Wrap>
+      <InnerWrap>
+        <Title>Количество пересадок</Title>
+        {bundleLoaded ? <CheckboxGroup /> : <Placeholder />}
+      </InnerWrap>
+    </Wrap>
+  )
+}
 
 const Wrap = styled.aside`
   height: 262px;

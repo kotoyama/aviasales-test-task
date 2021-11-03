@@ -1,4 +1,4 @@
-import { Ticket } from 'features/tickets'
+import { Ticket } from '../api'
 
 export enum SortType {
   FASTEST = 'fastest',
