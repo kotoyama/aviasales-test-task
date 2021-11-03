@@ -1,6 +1,8 @@
+export { Box } from './Box'
 export { Icon } from './Icon'
 export { Logo } from './Logo'
 export { Layout } from './Layout'
 export { Button } from './Button'
+export { Skeleton } from './Skeleton'
 export { Checkbox } from './Checkbox'
 export { Container } from './Container'
