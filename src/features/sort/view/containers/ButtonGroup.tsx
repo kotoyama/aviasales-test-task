@@ -3,8 +3,7 @@ import { useList } from 'effector-react'
 import { styled } from '@linaria/react'
 
 import { ButtonGroupItem } from '../parts'
-import { sortTypeChanged } from '../../model/private'
-import { $buttonGroup } from '../../model/public'
+import { $buttonGroup, sortTypeChanged } from '../../model/private'
 
 export const ButtonGroup: React.FC = () => (
   <StyledButtonGroup role="group">

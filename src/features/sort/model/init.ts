@@ -1,5 +1,4 @@
-import { sortTypeChanged } from './private'
-import { $buttonGroup } from './public'
+import { $buttonGroup, sortTypeChanged } from './private'
 
 $buttonGroup.on(sortTypeChanged, (buttons, type) =>
   buttons.map((item) => ({ ...item, active: item.id === type })),
