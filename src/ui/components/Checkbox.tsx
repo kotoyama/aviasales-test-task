@@ -10,9 +10,7 @@ type Props = {
 export const Checkbox: React.FC<Props> = ({ id, checked, label, ...props }) => (
   <Label htmlFor={id}>
     <Input id={id} type="checkbox" checked={checked} {...props} />
-    <StyledCheckbox checked={checked || false}>
-      <Icon icon="check" />
-    </StyledCheckbox>
+    <StyledCheckbox>{checked && <Icon icon="check" />}</StyledCheckbox>
     {label}
   </Label>
 )
@@ -25,6 +23,7 @@ const Label = styled.label`
   font-weight: 400;
   line-height: 1.5;
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     background: #f1fcff;
@@ -47,9 +46,13 @@ const Input = styled.input`
   position: absolute;
   white-space: nowrap;
   width: 1px;
+
+  &:checked + div {
+    border: 1px solid var(--color-blue);
+  }
 `
 
-const StyledCheckbox = styled.div<{ checked: boolean }>`
+const StyledCheckbox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,8 +62,4 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   height: 20px;
   border-radius: 2px;
   border: 1px solid var(--color-grayblue);
-
-  & svg {
-    visibility: ${({ checked }) => (checked ? 'visible' : 'hidden')};
-  }
 `
