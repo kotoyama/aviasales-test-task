@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { Skeleton } from 'ui/components'
+import { Skeleton } from '~/ui/components'
 
 import { Wrapper } from '../parts'
 

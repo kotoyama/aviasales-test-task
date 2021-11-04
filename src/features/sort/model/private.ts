@@ -1,6 +1,6 @@
-import { root } from 'root'
+import { root } from '~/root'
 
-import { buttonGroup, SortType, SortButton } from 'entities'
+import { buttonGroup, SortType, SortButton } from '~/entities'
 
 export const sort = root.domain('sort')
 

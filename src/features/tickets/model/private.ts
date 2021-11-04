@@ -1,11 +1,13 @@
 import { attach, combine } from 'effector'
 import { nanoid } from 'nanoid'
-import { root } from 'root'
+import { root } from '~/root'
 
-import { Ticket, TicketEntity, buttonGroup } from 'entities'
-import { $activatedFilters } from 'features/filters'
-import { $sortType } from 'features/sort'
-import { sortBy } from 'lib/sortBy'
+import { Ticket, TicketEntity, buttonGroup } from '~/entities'
+
+import { $activatedFilters } from '~/features/filters'
+import { $sortType } from '~/features/sort'
+
+import { sortBy } from '~/lib/sortBy'
 
 import { getTicketsReqFx } from '../api'
 

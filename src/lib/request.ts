@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { root } from 'root'
+import { root } from '~/root'
 
 export enum Method {
   GET = 'GET',

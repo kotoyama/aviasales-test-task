@@ -1,5 +1,5 @@
 import { attach } from 'effector'
-import { root } from 'root'
+import { root } from '~/root'
 
 import { getSearchIdReqFx } from '../api'
 

@@ -1,6 +1,6 @@
-import { root } from 'root'
+import { root } from '~/root'
 
-import { Filter, filtersGroup } from 'entities'
+import { Filter, filtersGroup } from '~/entities'
 
 export const filters = root.domain('filters')
 

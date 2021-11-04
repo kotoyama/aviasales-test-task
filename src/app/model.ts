@@ -1,7 +1,7 @@
 import { forward } from 'effector'
 import { createGate } from 'effector-react'
 
-import { loadSearchIdFx } from 'features/tickets'
+import { loadSearchIdFx } from '~/features/tickets'
 
 export const AppGate = createGate()
 
