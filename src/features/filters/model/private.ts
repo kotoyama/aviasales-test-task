@@ -1,13 +1,13 @@
 import { root } from 'root'
 
-import { Filter, FilterType, initFilters } from 'entities'
+import { Filter, filtersGroup } from 'entities'
 
 export const filters = root.domain('filters')
 
-export const $filters = filters.store<Filter[]>(initFilters)
+export const $filters = filters.store<Filter[]>(filtersGroup)
 
-export const filterChanged = filters.event<string>()
-export const toggleStopFilter = filters.event<string>()
+export const filterChanged = filters.event<number>()
+export const toggleStopsFilter = filters.event<number>()
 export const toggleAllFilters = filters.event<boolean>()
 export const toggleAllFilter = filters.event<boolean>()
 export const checkAllFilter = filters.event()
@@ -17,6 +17,6 @@ export const $everyFilterApplied = $filters.map((items) =>
 )
 
 export const $allFilterActivated = $filters.map((items) => {
-  const allFilter = items.find((item) => item.id === FilterType.ALL_TRANSFERS)
+  const allFilter = items.find((item) => item.stops === -1)
   return allFilter?.active || false
 })

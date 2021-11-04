@@ -1,27 +1,25 @@
 import { forward, sample, split } from 'effector'
 
-import { FilterType } from 'entities'
-
 import {
   $filters,
   $everyFilterApplied,
   $allFilterActivated,
   filterChanged,
   checkAllFilter,
-  toggleStopFilter,
+  toggleStopsFilter,
   toggleAllFilter,
   toggleAllFilters,
 } from './private'
 
 $filters
-  .on(toggleStopFilter, (filters, id) =>
+  .on(toggleStopsFilter, (filters, stops) =>
     filters.map((item) =>
-      item.id === id ? { ...item, active: !item.active } : item,
+      item.stops === stops ? { ...item, active: !item.active } : item,
     ),
   )
   .on(toggleAllFilter, (filters, active) =>
     filters.map((item) =>
-      item.id === FilterType.ALL_TRANSFERS ? { ...item, active: active } : item,
+      item.stops === -1 ? { ...item, active: active } : item,
     ),
   )
   .on(toggleAllFilters, (filters, active) =>
@@ -36,12 +34,12 @@ forward({
 split({
   source: filterChanged,
   match: {
-    check: (id) => id === FilterType.ALL_TRANSFERS,
-    toggle: (id) => id !== FilterType.ALL_TRANSFERS,
+    check: (stops) => stops === -1,
+    toggle: (stops) => stops !== -1,
   },
   cases: {
     check: checkAllFilter,
-    toggle: toggleStopFilter,
+    toggle: toggleStopsFilter,
   },
 })
 
