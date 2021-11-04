@@ -53,6 +53,15 @@ module.exports = {
         ],
       },
     ],
+    [
+      'module-resolver',
+      {
+        root: ['./'],
+        alias: {
+          '~': './src',
+        },
+      },
+    ],
     ['effector/babel-plugin', pluginEffector],
   ].filter(Boolean),
 }
