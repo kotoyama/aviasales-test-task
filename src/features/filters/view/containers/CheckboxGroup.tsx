@@ -10,6 +10,7 @@ export const CheckboxGroup: React.FC = () => (
   <StyledCheckboxGroup role="group">
     {useList($filters, ({ label, active, stops }) => (
       <Checkbox
+        id={stops.toString()}
         label={label}
         checked={active}
         onChange={() => filterChanged(stops)}
