@@ -2,7 +2,7 @@ import React from 'react'
 
 import { SortTabs } from 'features/sort'
 import { Filters } from 'features/filters'
-import { TicketsList } from 'features/tickets'
+import { TicketsList } from 'features/results'
 import { Container, Layout, Logo } from 'ui/components'
 
 import '../init'

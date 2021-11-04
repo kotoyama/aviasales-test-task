@@ -8,10 +8,10 @@ import { $sortType } from '../../sort/model'
 import { $tickets } from '../../tickets/model'
 import { $activatedFilters } from '../../filters/model'
 
-export const app = root.domain('app-public')
+export const results = root.domain('results-public')
 
-export const appLoadEnd = app.event()
-export const $loading = app.store(true)
+export const appLoadEnd = results.event()
+export const $loading = results.store(true)
 
 export const $firstBundleLoaded = $tickets.map((items) => items.length > 0)
 

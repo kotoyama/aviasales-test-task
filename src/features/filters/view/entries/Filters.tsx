@@ -2,7 +2,7 @@ import React from 'react'
 import { useStore } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { $firstBundleLoaded } from 'features/app'
+import { $firstBundleLoaded } from 'features/results'
 
 import { CheckboxGroup, Placeholder } from '../containers'
 

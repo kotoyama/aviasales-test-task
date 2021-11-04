@@ -2,9 +2,8 @@ import React from 'react'
 import { useStore } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { $firstBundleLoaded, $loading, $results } from 'features/app'
-
 import { Card, Placeholder } from '../containers'
+import { $firstBundleLoaded, $loading, $results } from '../../model/public'
 
 export const TicketsList: React.FC = () => {
   const bundleLoaded = useStore($firstBundleLoaded)

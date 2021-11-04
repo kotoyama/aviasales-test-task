@@ -1,6 +1,6 @@
 import { forward, guard, sample } from 'effector'
 
-import { appLoadEnd } from 'features/app'
+import { appLoadEnd } from 'features/results'
 import { filtersUpdated } from 'features/filters'
 
 import {
