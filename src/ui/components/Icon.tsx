@@ -3,6 +3,7 @@ import * as React from 'react'
 import { ReactComponent as Loader } from '../icons/loader.svg'
 import { ReactComponent as Logo } from '../icons/logo.svg'
 import { ReactComponent as Check } from '../icons/check.svg'
+import { ReactComponent as Arrow } from '../icons/arrow.svg'
 
 interface IconConfig {
   component: React.FC<React.SVGAttributes<SVGElement>>
@@ -32,6 +33,11 @@ const icons: IconsConfig = {
     component: Check,
     width: 12,
     height: 8,
+  },
+  arrow: {
+    component: Arrow,
+    width: 16,
+    height: 16,
   },
 }
 
