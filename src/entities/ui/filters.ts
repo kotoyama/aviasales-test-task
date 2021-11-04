@@ -20,4 +20,32 @@ export const initFilters: Filter[] = [
     active: true,
     stops: -1,
   },
+  {
+    id: FilterType.WITHOUT_TRANSFERS,
+    type: FilterType.WITHOUT_TRANSFERS,
+    label: 'Без пересадок',
+    active: true,
+    stops: 0,
+  },
+  {
+    id: FilterType.WITH_TRANSFERS,
+    type: FilterType.WITH_TRANSFERS,
+    label: '1 пересадка',
+    active: true,
+    stops: 1,
+  },
+  {
+    id: FilterType.WITH_TRANSFERS,
+    type: FilterType.WITH_TRANSFERS,
+    label: '2 пересадки',
+    active: true,
+    stops: 2,
+  },
+  {
+    id: FilterType.WITH_TRANSFERS,
+    type: FilterType.WITH_TRANSFERS,
+    label: '3 пересадки',
+    active: true,
+    stops: 3,
+  },
 ]

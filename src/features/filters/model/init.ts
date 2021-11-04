@@ -1,9 +1,7 @@
 import { forward, sample, split } from 'effector'
 
-import { plural } from 'lib/plural'
 import { FilterType } from 'entities'
 
-import { filtersUpdated } from './public'
 import {
   $filters,
   $everyFilterApplied,
@@ -28,34 +26,6 @@ $filters
   )
   .on(toggleAllFilters, (filters, active) =>
     filters.map((item) => ({ ...item, active: !active })),
-  )
-  .on(filtersUpdated, (filters, tickets) =>
-    tickets.reduce(
-      (acc, ticket) => {
-        const filterExists = ticket.stops.every((item) =>
-          acc.find((filter) => filter?.stops === item),
-        )
-        if (filterExists) return acc
-        ticket.stops.forEach((item) => {
-          if (acc[item + 1]) return
-          acc[item + 1] = {
-            id: `${item} transfers`,
-            type: item
-              ? FilterType.WITH_TRANSFERS
-              : FilterType.WITHOUT_TRANSFERS,
-            label: plural(
-              item,
-              ['пересадка', 'пересадки', 'пересадок'],
-              'Без пересадок',
-            ),
-            active: true,
-            stops: item,
-          }
-        })
-        return acc
-      },
-      [...filters],
-    ),
   )
 
 forward({

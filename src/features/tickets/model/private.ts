@@ -1,15 +1,35 @@
-import { attach } from 'effector'
+import { attach, combine } from 'effector'
 import { nanoid } from 'nanoid'
 import { root } from 'root'
 
-import { Ticket, TicketEntity } from 'entities'
+import { Ticket, TicketEntity, buttonGroup } from 'entities'
+import { $activatedFilters } from 'features/filters'
+import { $sortType } from 'features/sort'
+import { sortBy } from 'lib/sortBy'
 
 import { getTicketsReqFx } from '../api'
 
 export const tickets = root.domain('tickets')
 
+export const $loading = tickets.store(true)
 export const $searchId = tickets.store<string>('')
+export const $tickets = tickets.store<Ticket[]>([])
+
 export const ticketsUpdated = tickets.event<Ticket[]>()
+
+export const $firstBundleLoaded = $tickets.map((items) => items.length > 0)
+
+export const $results = combine(
+  $tickets,
+  $sortType,
+  $activatedFilters,
+  (tickets, type, filters) => {
+    const results = tickets.filter((item) =>
+      item.stops.every((stop) => filters.includes(stop)),
+    )
+    return sortBy(results, buttonGroup[type].field)
+  },
+)
 
 export const ticketsNormalized = ticketsUpdated.prepend(
   (tickets: TicketEntity[]) =>
