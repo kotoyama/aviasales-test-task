@@ -36,8 +36,8 @@ export const ScrollToTop: React.FC = () => {
 
 const Button = styled.button`
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  bottom: 30px;
+  right: 30px;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -57,11 +57,6 @@ const Button = styled.button`
   }
 
   &:hover {
-    opacity: 1;
-    background-color: var(--color-blue);
-
-    svg path {
-      fill: white;
-    }
+    background-color: #fafafa;
   }
 `
