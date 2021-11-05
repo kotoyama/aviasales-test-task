@@ -1,11 +1,16 @@
 import { forward, guard, sample } from 'effector'
 
+import { $activatedFilters } from '~/features/filters'
+import { $sortType } from '~/features/sort'
+
 import {
+  $limit,
   $loading,
   $tickets,
   $searchId,
-  ticketsNormalized,
+  limitChanged,
   ticketsUpdated,
+  ticketsNormalized,
   loadTicketsFx,
 } from './private'
 import { loadSearchIdFx } from './public'
@@ -19,8 +24,12 @@ const loadingStopped = guard(loadTicketsFx.doneData, {
 })
 
 $searchId.on(loadSearchIdFx.doneData, (_, res) => res.body.searchId)
-$tickets.on(ticketsUpdated, (_, payload) => payload)
+$tickets.on(ticketsUpdated, (_, tickets) => tickets)
 $loading.on(loadingStopped, () => false)
+
+$limit
+  .on(limitChanged, (limit) => limit + 5)
+  .reset([$sortType.updates, $activatedFilters.updates])
 
 forward({
   from: $searchId,

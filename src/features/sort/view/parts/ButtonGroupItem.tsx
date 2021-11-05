@@ -33,9 +33,19 @@ const GroupItem = styled.div`
     border-radius: 0 var(--border-radius-main) var(--border-radius-main) 0;
   }
 
-  &[aria-checked='true'] button {
-    color: var(--color-white);
-    background-color: var(--color-blue);
-    border-color: var(--color-blue);
+  button {
+    border-radius: 0;
+  }
+
+  &[aria-checked='false'] {
+    button {
+      background-color: var(--color-white);
+      border-color: var(--color-lightgray);
+      color: var(--color-black);
+    }
+
+    &:not(:last-child) button {
+      border-right-width: 0;
+    }
   }
 `

@@ -12,12 +12,13 @@ export const Button: React.FC<Props> = ({ children, ...props }) => (
 const StyledButton = styled.button`
   width: 100%;
   height: 50px;
-  font: inherit;
   letter-spacing: 0.5px;
   text-align: center;
   text-transform: uppercase;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-lightgray);
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+  border-radius: var(--border-radius-main);
 
   &:focus {
     box-shadow: 0 0 0 2px var(--color-button-focus);

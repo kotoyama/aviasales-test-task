@@ -8,6 +8,7 @@ const Wrap = styled.main`
   grid-gap: 20px;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr minmax(auto, 2fr);
+  padding-bottom: 20px;
 
   @media (max-width: 768px) {
     grid-template-rows: auto auto auto;

@@ -13,10 +13,12 @@ import { getTicketsReqFx } from '../api'
 
 export const tickets = root.domain('tickets')
 
+export const $limit = tickets.store(5)
 export const $loading = tickets.store(true)
 export const $searchId = tickets.store<string>('')
 export const $tickets = tickets.store<Ticket[]>([])
 
+export const limitChanged = tickets.event()
 export const ticketsUpdated = tickets.event<Ticket[]>()
 
 export const $firstBundleLoaded = $tickets.map((items) => items.length > 0)
