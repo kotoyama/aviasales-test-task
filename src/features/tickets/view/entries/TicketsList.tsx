@@ -9,12 +9,14 @@ import {
   $limit,
   $results,
   $loading,
-  $firstBundleLoaded,
+  $canLoadMore,
+  $firstChunkLoaded,
   limitChanged,
 } from '../../model/private'
 
 export const TicketsList: React.FC = () => {
-  const firstBundleLoaded = useStore($firstBundleLoaded)
+  const firstChunkLoaded = useStore($firstChunkLoaded)
+  const canLoadMore = useStore($canLoadMore)
   const results = useStore($results)
   const loading = useStore($loading)
   const limit = useStore($limit)
@@ -22,7 +24,7 @@ export const TicketsList: React.FC = () => {
   return (
     <Wrap>
       <List>
-        {firstBundleLoaded
+        {firstChunkLoaded
           ? results
               .slice(0, limit)
               .map((ticket) => <Card key={ticket.id} ticket={ticket} />)
@@ -31,7 +33,7 @@ export const TicketsList: React.FC = () => {
           <NotFound>Ничего не найдено</NotFound>
         )}
       </List>
-      {results.length > 0 && (
+      {results.length > 0 && canLoadMore && (
         <Button onClick={() => limitChanged()}>Показать ещё 5 билетов!</Button>
       )}
     </Wrap>

@@ -11,17 +11,25 @@ import { sortBy } from '~/lib/sortBy'
 
 import { getTicketsReqFx } from '../api'
 
+const CHUNK_SIZE = 5
+
 export const tickets = root.domain('tickets')
 
-export const $limit = tickets.store(5)
 export const $loading = tickets.store(true)
+export const $limit = tickets.store(CHUNK_SIZE)
 export const $searchId = tickets.store<string>('')
 export const $tickets = tickets.store<Ticket[]>([])
 
 export const limitChanged = tickets.event()
 export const ticketsUpdated = tickets.event<Ticket[]>()
 
-export const $firstBundleLoaded = $tickets.map((items) => items.length > 0)
+export const $firstChunkLoaded = $tickets.map((items) => items.length > 0)
+
+export const $canLoadMore = combine(
+  $limit,
+  $tickets,
+  (limit, tickets) => Math.ceil((tickets.length - limit) / CHUNK_SIZE) > 0,
+)
 
 export const $results = combine(
   $tickets,
