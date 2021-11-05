@@ -2,8 +2,8 @@ import React from 'react'
 
 import { SortTabs } from '~/features/sort'
 import { Filters } from '~/features/filters'
-import { TicketsList } from '~/features/tickets'
 import { ScrollToTop } from '~/features/scroll-to-top'
+import { TicketsList, LoadingBar } from '~/features/tickets'
 
 import { Container, Layout, Logo } from '~/ui/components'
 
@@ -14,6 +14,7 @@ export const App: React.FC = () => (
   <>
     <AppGate />
     <Layout>
+      <LoadingBar />
       <Logo />
       <ScrollToTop />
       <Container>
