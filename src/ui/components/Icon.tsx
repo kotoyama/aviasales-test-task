@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import { ReactComponent as Loader } from '../icons/loader.svg'
 import { ReactComponent as Logo } from '../icons/logo.svg'
 import { ReactComponent as Check } from '../icons/check.svg'
 import { ReactComponent as Arrow } from '../icons/arrow.svg'
@@ -17,12 +16,6 @@ interface IconsConfig {
 }
 
 const icons: IconsConfig = {
-  loader: {
-    component: Loader,
-    width: 50,
-    height: 50,
-    fill: '#007aff',
-  },
   logo: {
     component: Logo,
     width: 82,
