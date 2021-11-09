@@ -1,5 +1,7 @@
 import { forward, sample, split } from 'effector'
 
+import { Transfer } from '~/entities'
+
 import {
   $filters,
   $everyFilterApplied,
@@ -19,7 +21,7 @@ $filters
   )
   .on(toggleAllFilter, (filters, active) =>
     filters.map((item) =>
-      item.stops === -1 ? { ...item, active: active } : item,
+      item.stops === Transfer.ALL ? { ...item, active: active } : item,
     ),
   )
   .on(toggleAllFilters, (filters, active) =>
@@ -34,8 +36,8 @@ forward({
 split({
   source: filterChanged,
   match: {
-    check: (stops) => stops === -1,
-    toggle: (stops) => stops !== -1,
+    check: (stops) => stops === Transfer.ALL,
+    toggle: (stops) => stops !== Transfer.ALL,
   },
   cases: {
     check: checkAllFilter,

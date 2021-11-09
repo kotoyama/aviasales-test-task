@@ -4,6 +4,14 @@ export interface Filter {
   stops: number
 }
 
+export enum Transfer {
+  ALL = -1,
+  ZERO = 0,
+  ONE = 1,
+  TWO = 2,
+  THREE = 3,
+}
+
 export const filtersGroup: Filter[] = [
   {
     label: 'Все',
