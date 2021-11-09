@@ -1,9 +1,3 @@
-export interface Filter {
-  label: string
-  active: boolean
-  stops: number
-}
-
 export enum Transfer {
   ALL = -1,
   ZERO = 0,
@@ -12,30 +6,36 @@ export enum Transfer {
   THREE = 3,
 }
 
+export interface Filter {
+  label: string
+  active: boolean
+  stops: Transfer
+}
+
 export const filtersGroup: Filter[] = [
   {
     label: 'Все',
     active: true,
-    stops: -1,
+    stops: Transfer.ALL,
   },
   {
     label: 'Без пересадок',
     active: true,
-    stops: 0,
+    stops: Transfer.ZERO,
   },
   {
     label: '1 пересадка',
     active: true,
-    stops: 1,
+    stops: Transfer.ONE,
   },
   {
     label: '2 пересадки',
     active: true,
-    stops: 2,
+    stops: Transfer.TWO,
   },
   {
     label: '3 пересадки',
     active: true,
-    stops: 3,
+    stops: Transfer.THREE,
   },
 ]
