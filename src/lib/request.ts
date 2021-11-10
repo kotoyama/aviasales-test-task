@@ -11,7 +11,7 @@ export enum Method {
 
 export interface Request {
   path: string
-  method: Method
+  method?: Method
   headers?: HeadersInit
   body?: BodyInit
   params?: Record<string, string>
@@ -28,7 +28,12 @@ export interface Response<T = any> {
 const api = root.domain('api')
 
 export const requestFx = api.effect<Request, Response>({
-  handler: async ({ path, baseUrl, method, params, ...config }) => {
+  handler: async ({
+    method = Method.GET,
+    baseUrl = `${process.env.AVIASALES_API_URL}`,
+    ...config
+  }) => {
+    const { path, params } = config
     const body = config.body ? JSON.stringify(config.body) : undefined
     const query =
       params && Object.keys(params).length
