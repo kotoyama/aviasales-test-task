@@ -1,9 +1,6 @@
-import { root } from '~/root'
+import { defaultSort } from '../lib'
+import { $sortGroup } from './private'
 
-import { $buttonGroup } from './private'
-
-export const sort = root.domain('sort-public')
-
-export const $sortType = $buttonGroup.map((tabs) =>
-  tabs.reduce((acc, { id, active }) => (active ? id : acc), tabs[0].id),
+export const $activeSort = $sortGroup.map(
+  (group) => group.find((item) => item.active) || defaultSort,
 )

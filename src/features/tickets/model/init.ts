@@ -1,7 +1,7 @@
 import { forward, guard, sample } from 'effector'
 
 import { $activatedFilters } from '~/features/filters'
-import { $sortType } from '~/features/sort'
+import { $activeSort } from '~/features/sort'
 
 import {
   $limit,
@@ -29,7 +29,7 @@ $loading.on(loadingStopped, () => false)
 
 $limit
   .on(limitChanged, (limit) => limit + 5)
-  .reset([$sortType.updates, $activatedFilters.updates])
+  .reset([$activeSort.updates, $activatedFilters.updates])
 
 forward({
   from: $searchId,

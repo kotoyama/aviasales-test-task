@@ -3,16 +3,16 @@ import { useList } from 'effector-react'
 import { styled } from '@linaria/react'
 
 import { ButtonGroupItem } from '../parts'
-import { $buttonGroup, sortTypeChanged } from '../../model/private'
+import { $sortGroup, sortChanged } from '../../model/private'
 
 export const ButtonGroup: React.FC = () => (
   <StyledButtonGroup role="group">
-    {useList($buttonGroup, ({ id, label, active }) => (
+    {useList($sortGroup, ({ id, label, active }) => (
       <ButtonGroupItem
         id={id}
         label={label}
         active={active}
-        onClick={() => sortTypeChanged(id)}
+        onClick={() => sortChanged(id)}
       />
     ))}
   </StyledButtonGroup>

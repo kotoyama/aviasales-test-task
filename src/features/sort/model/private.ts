@@ -1,8 +1,10 @@
 import { root } from '~/root'
 
-import { buttonGroup, SortType, SortButton } from '~/entities'
+import { SortType, Sort } from '~/entities'
 
-export const sort = root.domain('sort')
+import { sortGroup } from '../lib'
 
-export const $buttonGroup = sort.store<SortButton[]>(Object.values(buttonGroup))
-export const sortTypeChanged = sort.event<SortType>()
+const sort = root.domain('sort')
+
+export const $sortGroup = sort.store<Sort[]>(sortGroup)
+export const sortChanged = sort.event<SortType>()

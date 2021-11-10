@@ -2,12 +2,10 @@ import { attach, combine } from 'effector'
 import { nanoid } from 'nanoid'
 import { root } from '~/root'
 
-import { Ticket, TicketEntity, buttonGroup } from '~/entities'
+import { Ticket, TicketEntity } from '~/entities'
 
 import { $activatedFilters } from '~/features/filters'
-import { $sortType } from '~/features/sort'
-
-import { sortBy } from '~/lib/sortBy'
+import { $activeSort } from '~/features/sort'
 
 import { getTicketsReqFx } from '../api'
 
@@ -33,14 +31,12 @@ export const $canLoadMore = combine(
 
 export const $results = combine(
   $tickets,
-  $sortType,
+  $activeSort,
   $activatedFilters,
-  (tickets, type, filters) => {
-    const results = tickets.filter((item) =>
-      item.stops.every((stop) => filters.includes(stop)),
-    )
-    return sortBy(results, buttonGroup[type].field)
-  },
+  (tickets, sort, filters) =>
+    tickets
+      .filter((item) => item.stops.every((stop) => filters.includes(stop)))
+      .sort(sort.comparator),
 )
 
 export const ticketsNormalized = ticketsUpdated.prepend(
