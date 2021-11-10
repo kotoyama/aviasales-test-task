@@ -2,6 +2,8 @@ import React from 'react'
 import { styled } from '@linaria/react'
 import { useStore } from 'effector-react'
 
+import { plural } from '~/lib/plural'
+
 import { Button } from '~/ui/components'
 
 import { Card, Placeholder } from '../containers'
@@ -12,6 +14,7 @@ import {
   $canLoadMore,
   $firstChunkLoaded,
   limitChanged,
+  CHUNK_SIZE,
 } from '../../model/private'
 
 export const TicketsList: React.FC = () => {
@@ -28,13 +31,15 @@ export const TicketsList: React.FC = () => {
           ? results
               .slice(0, limit)
               .map((ticket) => <Card key={ticket.id} ticket={ticket} />)
-          : [...Array(5)].map((_, i) => <Placeholder key={i} />)}
+          : [...Array(CHUNK_SIZE)].map((_, i) => <Placeholder key={i} />)}
         {results.length === 0 && !loading && (
           <NotFound>Ничего не найдено</NotFound>
         )}
       </List>
       {results.length > 0 && canLoadMore && (
-        <Button onClick={() => limitChanged()}>Показать ещё 5 билетов!</Button>
+        <Button onClick={() => limitChanged()}>
+          Показать ещё {plural(CHUNK_SIZE, ['билет', 'билета', 'билетов'])}!
+        </Button>
       )}
     </Wrap>
   )

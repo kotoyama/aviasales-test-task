@@ -12,6 +12,7 @@ import {
   ticketsUpdated,
   ticketsNormalized,
   loadTicketsFx,
+  CHUNK_SIZE,
 } from './private'
 import { loadSearchIdFx } from './public'
 
@@ -28,7 +29,7 @@ $tickets.on(ticketsUpdated, (_, tickets) => tickets)
 $loading.on(loadingStopped, () => false)
 
 $limit
-  .on(limitChanged, (limit) => limit + 5)
+  .on(limitChanged, (limit) => limit + CHUNK_SIZE)
   .reset([$activeSort.updates, $activatedFilters.updates])
 
 forward({

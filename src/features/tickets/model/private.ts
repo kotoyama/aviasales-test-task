@@ -9,7 +9,7 @@ import { $activeSort } from '~/features/sort'
 
 import { getTicketsReqFx } from '../api'
 
-const CHUNK_SIZE = 5
+export const CHUNK_SIZE = 5
 
 export const tickets = root.domain('tickets')
 
