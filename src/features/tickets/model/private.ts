@@ -4,7 +4,7 @@ import { root } from '~/root'
 
 import { Ticket, TicketEntity } from '~/entities'
 
-import { $activeFiltersFn } from '~/features/filters'
+import { $filtersFn, $activeFilters } from '~/features/filters'
 import { $activeSort } from '~/features/sort'
 
 import { getTicketsReqFx } from '../api'
@@ -23,17 +23,23 @@ export const ticketsUpdated = tickets.event<Ticket[]>()
 
 export const $firstChunkLoaded = $tickets.map((items) => items.length > 0)
 
+export const $results = combine(
+  $tickets,
+  $filtersFn,
+  $activeSort,
+  (tickets, filtersFn, { comparator }) =>
+    tickets.filter(filtersFn).sort(comparator),
+)
+
 export const $canLoadMore = combine(
   $limit,
   $tickets,
-  (limit, tickets) => Math.ceil((tickets.length - limit) / CHUNK_SIZE) > 0,
-)
-
-export const $results = combine(
-  $tickets,
-  $activeSort,
-  $activeFiltersFn,
-  (tickets, sort, filtersFn) => tickets.filter(filtersFn).sort(sort.comparator),
+  $results,
+  $activeFilters,
+  (limit, tickets, results, activeFilters) => {
+    const target = activeFilters.length > 0 ? results : tickets
+    return Math.ceil((target.length - limit) / CHUNK_SIZE) > 0
+  },
 )
 
 export const ticketsNormalized = ticketsUpdated.prepend(

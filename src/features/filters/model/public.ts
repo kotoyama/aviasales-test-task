@@ -6,10 +6,11 @@ import { $filters } from './private'
 
 export const filters = root.domain('filters-public')
 
-export const $activeFiltersFn = $filters.map((items) => {
-  const filters = items
-    .slice(1)
-    .filter(({ active }) => active)
-    .map(({ predicate }) => predicate)
-  return (ticket: Ticket) => filters.some((fn) => fn(ticket))
+export const $activeFilters = $filters.map((items) =>
+  items.slice(1).filter(({ active }) => active),
+)
+
+export const $filtersFn = $activeFilters.map((items) => {
+  const predicates = items.map(({ predicate }) => predicate)
+  return (ticket: Ticket) => predicates.some((fn) => fn(ticket))
 })
