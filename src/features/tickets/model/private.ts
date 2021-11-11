@@ -4,7 +4,7 @@ import { root } from '~/root'
 
 import { Ticket, TicketEntity } from '~/entities'
 
-import { $activatedFilters } from '~/features/filters'
+import { $activeFiltersFn } from '~/features/filters'
 import { $activeSort } from '~/features/sort'
 
 import { getTicketsReqFx } from '../api'
@@ -32,11 +32,8 @@ export const $canLoadMore = combine(
 export const $results = combine(
   $tickets,
   $activeSort,
-  $activatedFilters,
-  (tickets, sort, filters) =>
-    tickets
-      .filter((item) => item.stops.every((stop) => filters.includes(stop)))
-      .sort(sort.comparator),
+  $activeFiltersFn,
+  (tickets, sort, filtersFn) => tickets.filter(filtersFn).sort(sort.comparator),
 )
 
 export const ticketsNormalized = ticketsUpdated.prepend(
@@ -49,9 +46,9 @@ export const ticketsNormalized = ticketsUpdated.prepend(
         (acc, { duration }) => acc + duration,
         0,
       ),
-      stops: item.segments.reduce<number[]>(
-        (acc, { stops }) => [...acc, stops.length],
-        [],
+      totalStops: item.segments.reduce(
+        (acc, { stops }) => acc + stops.length,
+        0,
       ),
     })),
 )

@@ -1,3 +1,5 @@
+import { Ticket } from '../api'
+
 export enum Transfer {
   ALL = -1,
   ZERO = 0,
@@ -6,36 +8,11 @@ export enum Transfer {
   THREE = 3,
 }
 
+export type FilterFn<T> = (item: T) => boolean
+
 export interface Filter {
+  type: Transfer
   label: string
   active: boolean
-  stops: Transfer
+  predicate: FilterFn<Ticket>
 }
-
-export const filtersGroup: Filter[] = [
-  {
-    label: 'Все',
-    active: true,
-    stops: Transfer.ALL,
-  },
-  {
-    label: 'Без пересадок',
-    active: true,
-    stops: Transfer.ZERO,
-  },
-  {
-    label: '1 пересадка',
-    active: true,
-    stops: Transfer.ONE,
-  },
-  {
-    label: '2 пересадки',
-    active: true,
-    stops: Transfer.TWO,
-  },
-  {
-    label: '3 пересадки',
-    active: true,
-    stops: Transfer.THREE,
-  },
-]

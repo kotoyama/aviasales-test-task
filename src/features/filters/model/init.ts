@@ -14,14 +14,14 @@ import {
 } from './private'
 
 $filters
-  .on(toggleStopsFilter, (filters, stops) =>
+  .on(toggleStopsFilter, (filters, type) =>
     filters.map((item) =>
-      item.stops === stops ? { ...item, active: !item.active } : item,
+      item.type === type ? { ...item, active: !item.active } : item,
     ),
   )
   .on(toggleAllFilter, (filters, active) =>
     filters.map((item) =>
-      item.stops === Transfer.ALL ? { ...item, active: active } : item,
+      item.type === Transfer.ALL ? { ...item, active: active } : item,
     ),
   )
   .on(toggleAllFilters, (filters, active) =>
@@ -36,8 +36,8 @@ forward({
 split({
   source: filterChanged,
   match: {
-    check: (stops) => stops === Transfer.ALL,
-    toggle: (stops) => stops !== Transfer.ALL,
+    check: (type) => type === Transfer.ALL,
+    toggle: (type) => type !== Transfer.ALL,
   },
   cases: {
     check: checkAllFilter,

@@ -7,12 +7,12 @@ import { $sortGroup, sortChanged } from '../../model/private'
 
 export const ButtonGroup: React.FC = () => (
   <StyledButtonGroup role="group">
-    {useList($sortGroup, ({ id, label, active }) => (
+    {useList($sortGroup, ({ type, label, active }) => (
       <ButtonGroupItem
-        id={id}
+        id={type}
         label={label}
         active={active}
-        onClick={() => sortChanged(id)}
+        onClick={() => sortChanged(type)}
       />
     ))}
   </StyledButtonGroup>

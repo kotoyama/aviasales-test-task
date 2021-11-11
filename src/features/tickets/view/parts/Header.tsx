@@ -5,7 +5,7 @@ import { Ticket } from '~/entities'
 
 import { formatPrice } from '~/lib/price'
 
-type Props = Omit<Ticket, 'id' | 'segments' | 'totalDuration' | 'stops'>
+type Props = Omit<Ticket, 'id' | 'segments' | 'totalDuration' | 'totalStops'>
 
 export const Header: React.FC<Props> = ({ price, logo, carrier }) => (
   <Wrap>

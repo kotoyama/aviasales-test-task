@@ -15,8 +15,8 @@ export enum SortType {
 export type SortFn<T> = (a: T, b: T) => number
 
 export interface Sort {
-  id: SortType
   label: string
   active: boolean
+  type: SortType
   comparator: SortFn<Ticket>
 }

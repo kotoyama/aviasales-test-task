@@ -1,6 +1,6 @@
 import { forward, guard, sample } from 'effector'
 
-import { $activatedFilters } from '~/features/filters'
+import { $activeFiltersFn } from '~/features/filters'
 import { $activeSort } from '~/features/sort'
 
 import {
@@ -30,7 +30,7 @@ $loading.on(loadingStopped, () => false)
 
 $limit
   .on(limitChanged, (limit) => limit + CHUNK_SIZE)
-  .reset([$activeSort.updates, $activatedFilters.updates])
+  .reset([$activeSort.updates, $activeFiltersFn.updates])
 
 forward({
   from: $searchId,
