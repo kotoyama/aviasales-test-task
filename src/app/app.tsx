@@ -5,7 +5,7 @@ import { Filters } from '~/features/filters'
 import { ScrollToTop } from '~/features/scroll-to-top'
 import { TicketsList, LoadingBar } from '~/features/tickets'
 
-import { Container, Layout, Logo } from '~/ui/components'
+import { Container, Layout, Sidebar, Logo } from '~/ui/components'
 
 import '../init'
 import { AppGate } from './model'
@@ -18,7 +18,9 @@ export const App: React.FC = () => (
       <Logo />
       <ScrollToTop />
       <Container>
-        <Filters />
+        <Sidebar>
+          <Filters />
+        </Sidebar>
         <SortTabs />
         <TicketsList />
       </Container>
