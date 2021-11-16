@@ -1,0 +1,42 @@
+import { fork, allSettled, Scope } from 'effector'
+
+import { SortType } from '~/entities'
+
+import './init'
+import { $activeSort } from './public'
+import { $sortGroup, sortChanged } from './private'
+import { sortGroup, defaultSort } from '../lib'
+
+let scope: Scope
+
+describe('sort', () => {
+  const changeFn = jest.fn()
+  sortChanged.watch(changeFn)
+
+  beforeEach(() => {
+    scope = fork()
+  })
+
+  test('should be initialized properly with default states', () => {
+    expect(scope.getState($sortGroup)).toBe(sortGroup)
+    expect(scope.getState($activeSort)).toBe(defaultSort)
+  })
+
+  test('should apply new sort properly', async () => {
+    await allSettled(sortChanged, {
+      params: SortType.FASTEST,
+      scope,
+    })
+
+    const activeSort = scope.getState($activeSort)
+    const sortGroup = scope.getState($sortGroup)
+
+    expect(changeFn).toHaveBeenCalledTimes(1)
+    expect(activeSort.type).toBe(SortType.FASTEST)
+    sortGroup
+      .filter((sort) => sort.type !== activeSort.type)
+      .forEach((sort) => {
+        expect(sort.active).toBeFalsy()
+      })
+  })
+})
