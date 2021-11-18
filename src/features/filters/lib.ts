@@ -2,18 +2,18 @@ import { Ticket, Transfer, Filter, SegmentEntity } from '~/entities'
 
 import { plural } from '~/lib/plural'
 
-const segmentHasAmountOfStops = (stops: number) => (segment: SegmentEntity) =>
-  segment.stops.length === stops
-
-const hasAmountOfStops =
-  (stops: number) =>
-  (ticket: Ticket): boolean =>
-    ticket.segments.every(segmentHasAmountOfStops(stops))
-
 const generateLabel = (stops: number) =>
   stops === -1
     ? 'Все'
     : plural(stops, ['пересадка', 'пересадки', 'пересадок'], 'Без пересадок')
+
+const segmentHasAmountOfStops = (stops: number) => (segment: SegmentEntity) =>
+  segment.stops.length === stops
+
+export const hasAmountOfStops =
+  (stops: number) =>
+  (ticket: Ticket): boolean =>
+    ticket.segments.some(segmentHasAmountOfStops(stops))
 
 export const filterGroup: Filter[] = [
   {

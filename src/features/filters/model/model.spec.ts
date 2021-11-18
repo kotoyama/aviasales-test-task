@@ -16,7 +16,7 @@ import { filterGroup } from '../lib'
 
 let scope: Scope
 
-describe('filters', () => {
+describe('filters model', () => {
   const changeFn = jest.fn()
   const checkFn = jest.fn()
   const toggleFn = jest.fn()
