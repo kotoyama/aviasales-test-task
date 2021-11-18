@@ -1,7 +1,11 @@
-const getTimeFromDate = (date: number): string =>
-  new Date(date).toLocaleTimeString('ru', {
+export const getTimeFromDate = (
+  date: string | number,
+  options?: Intl.DateTimeFormatOptions,
+): string =>
+  new Date(date).toLocaleTimeString('ru-RU', {
     hour: 'numeric',
     minute: 'numeric',
+    ...options,
   })
 
 export const formatDuration = (minutes: number): string => {
