@@ -9,7 +9,7 @@ import { sortGroup, defaultSort } from '../lib'
 
 let scope: Scope
 
-describe('sort', () => {
+describe('sort model', () => {
   const changeFn = jest.fn()
   sortChanged.watch(changeFn)
 
