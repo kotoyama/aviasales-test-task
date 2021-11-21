@@ -3,6 +3,10 @@ import { plural } from './plural'
 const mockDeclarations = ['пересадка', 'пересадки', 'пересадок']
 
 describe('plural lib', () => {
+  test('should be defined', () => {
+    expect(plural).toBeDefined()
+  })
+
   test('should pluralize properly', () => {
     expect(plural(0, mockDeclarations, 'Без пересадок')).toBe('Без пересадок')
     expect(plural(0, mockDeclarations)).toBe('0 пересадок')

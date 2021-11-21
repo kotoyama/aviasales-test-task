@@ -1,6 +1,10 @@
 import { classNames } from './classNames'
 
 describe('classNames lib', () => {
+  test('should be defined', () => {
+    expect(classNames).toBeDefined()
+  })
+
   test('should attach classes properly if any class is false', () => {
     const mockClasses = {
       btn: true,

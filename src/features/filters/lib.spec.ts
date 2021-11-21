@@ -55,6 +55,10 @@ export const mockTickets: Ticket[] = [
 
 describe('filters lib', () => {
   describe('hasAmountOfStops', () => {
+    test('should be defined', () => {
+      expect(hasAmountOfStops).toBeDefined()
+    })
+
     test('should find out if some segment has a certain amount of stops', () => {
       expect(hasAmountOfStops(0)(mockTickets[0])).toBeFalsy()
       expect(hasAmountOfStops(1)(mockTickets[0])).toBeTruthy()
