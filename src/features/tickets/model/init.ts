@@ -5,28 +5,23 @@ import { $activeSort } from '~/features/sort'
 
 import {
   $limit,
+  $cache,
   $loading,
-  $tickets,
   $searchId,
+  $rawTickets,
+  $canStartTimer,
   limitChanged,
-  ticketsUpdated,
-  ticketsNormalized,
+  searchContinues,
+  searchCompleted,
   loadTicketsFx,
+  timerFx,
   CHUNK_SIZE,
 } from './private'
 import { loadSearchIdFx } from './public'
 
-const loadingContinues = guard(loadTicketsFx.doneData, {
-  filter: (res) => !res.body.stop,
-})
-
-const loadingStopped = guard(loadTicketsFx.doneData, {
-  filter: (res) => res.body.stop,
-})
-
 $searchId.on(loadSearchIdFx.doneData, (_, res) => res.body.searchId)
-$tickets.on(ticketsUpdated, (_, tickets) => tickets)
-$loading.on(loadingStopped, () => false)
+$rawTickets.on(searchContinues, (_, res) => res.body.tickets)
+$loading.on(searchCompleted, () => false)
 
 $limit
   .on(limitChanged, (limit) => limit + CHUNK_SIZE)
@@ -38,13 +33,25 @@ forward({
 })
 
 sample({
+  clock: [searchContinues, loadTicketsFx.fail],
   source: $searchId,
-  clock: [loadingContinues, loadTicketsFx.fail],
   target: loadTicketsFx,
 })
 
+guard({
+  source: searchContinues,
+  filter: $canStartTimer,
+  target: timerFx,
+})
+
+guard({
+  source: timerFx.done,
+  filter: $loading,
+  target: timerFx,
+})
+
 sample({
-  clock: loadTicketsFx.doneData,
-  fn: (res) => res.body.tickets,
-  target: ticketsNormalized,
+  clock: timerFx.done,
+  source: $rawTickets,
+  target: $cache,
 })

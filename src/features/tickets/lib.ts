@@ -1,3 +1,7 @@
+import { nanoid } from 'nanoid'
+
+import { Ticket, TicketEntity } from '~/entities'
+
 export const formatDuration = (minutes: number): string => {
   const hh = Math.floor(minutes / 60)
   const mm = Math.round(minutes % 60)
@@ -23,3 +27,15 @@ export const getTimeInterval = (
   const end = start + 60 * 1000 * duration
   return `${getTimeFromDate(start, options)} – ${getTimeFromDate(end, options)}`
 }
+
+export const normalizeTickets = (tickets: TicketEntity[]): Ticket[] =>
+  tickets.map((item) => ({
+    ...item,
+    id: nanoid(),
+    logo: `${process.env.PICS_CDN_URL}/${item.carrier}.png`,
+    totalDuration: item.segments.reduce(
+      (acc, { duration }) => acc + duration,
+      0,
+    ),
+    totalStops: item.segments.reduce((acc, { stops }) => acc + stops.length, 0),
+  }))
