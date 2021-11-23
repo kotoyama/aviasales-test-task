@@ -12,11 +12,13 @@ import {
   $results,
   $loading,
   $canLoadMore,
+  $firstChunkLoaded,
   limitChanged,
   CHUNK_SIZE,
 } from '../../model/private'
 
 export const TicketsList: React.FC = () => {
+  const firstChunkLoaded = useStore($firstChunkLoaded)
   const canLoadMore = useStore($canLoadMore)
   const results = useStore($results)
   const loading = useStore($loading)
@@ -25,7 +27,7 @@ export const TicketsList: React.FC = () => {
   return (
     <Wrap>
       <List>
-        {results.length > 0
+        {firstChunkLoaded
           ? results
               .slice(0, limit)
               .map((ticket) => <Card key={ticket.id} ticket={ticket} />)
