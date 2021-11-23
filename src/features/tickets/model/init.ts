@@ -15,7 +15,7 @@ import {
   CHUNK_SIZE,
 } from './private'
 
-$rawTickets.on(searchContinues, (_, res) => res.body.tickets)
+$rawTickets.on([searchContinues, searchCompleted], (_, res) => res.body.tickets)
 $loading.on(searchCompleted, () => false)
 
 $limit
