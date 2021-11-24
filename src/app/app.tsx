@@ -2,6 +2,7 @@ import React from 'react'
 
 import { SortTabs } from '~/features/sort'
 import { Filters } from '~/features/filters'
+import { CurrencySwitcher } from '~/features/currency'
 import { ScrollToTop } from '~/features/scroll-to-top'
 import { TicketsList, LoadingBar } from '~/features/tickets'
 
@@ -19,6 +20,7 @@ export const App: React.FC = () => (
       <ScrollToTop />
       <Container>
         <Sidebar>
+          <CurrencySwitcher />
           <Filters />
         </Sidebar>
         <SortTabs />

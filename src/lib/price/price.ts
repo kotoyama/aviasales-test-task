@@ -1,6 +1,13 @@
+import { Currency } from '~/entities'
+
 export const formatPrice = (
   price: number,
-  currency = 'RUB',
+  currency: Currency,
   format = 'Ru-ru',
 ): string =>
-  Intl.NumberFormat(format, { style: 'currency', currency }).format(price)
+  Intl.NumberFormat(format, {
+    style: 'currency',
+    currency: currency.type,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price * currency.rate)

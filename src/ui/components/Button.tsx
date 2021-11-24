@@ -13,7 +13,6 @@ const StyledButton = styled.button`
   width: 100%;
   height: 50px;
   letter-spacing: 0.5px;
-  text-align: center;
   text-transform: uppercase;
   color: var(--color-white);
   background-color: var(--color-blue);
