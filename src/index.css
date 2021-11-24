@@ -21,6 +21,7 @@
   --color-blue: #2196f3;
   --color-black: #4a4a4a;
   --color-gray: #a0b0b9;
+  --color-lightazure: #f2fcff;
   --color-lightgray: #dfe5ec;
   --color-grayblue: #9abbce;
   --color-lightblue: #f3f7fa;
@@ -38,6 +39,7 @@
   --color-text-main: var(--color-black);
   --box-shadow-main: 0px 2px 8px var(--color-transparent);
   --color-button-focus: var(--color-blue-transparent);
+  --color-radio-hover: var(--color-lightazure);
 }
 
 *,
@@ -83,4 +85,16 @@ button {
   cursor: pointer;
   border: 0;
   outline: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  border: 0;
 }

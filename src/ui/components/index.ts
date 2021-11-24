@@ -1,6 +1,7 @@
 export { Box } from './Box'
 export { Icon } from './Icon'
 export { Logo } from './Logo'
+export { Choice } from './Choice'
 export { Layout } from './Layout'
 export { Button } from './Button'
 export { Sidebar } from './Sidebar'

@@ -3,18 +3,23 @@ import { styled } from '@linaria/react'
 
 import { Ticket } from '~/entities'
 
+import { useCurrency } from '~/features/currency'
+
 import { formatPrice } from '~/lib/price'
 
 type Props = Omit<Ticket, 'id' | 'segments' | 'totalDuration' | 'totalStops'>
 
-export const Header: React.FC<Props> = ({ price, logo, carrier }) => (
-  <Wrap>
-    <Price>{formatPrice(price)}</Price>
-    <LogoWrap>
-      <Logo src={logo} alt={carrier} />
-    </LogoWrap>
-  </Wrap>
-)
+export const Header: React.FC<Props> = ({ price, logo, carrier }) => {
+  const currency = useCurrency()
+  return (
+    <Wrap>
+      <Price>{formatPrice(price, currency)}</Price>
+      <LogoWrap>
+        <Logo src={logo} alt={carrier} />
+      </LogoWrap>
+    </Wrap>
+  )
+}
 
 const Wrap = styled.div`
   display: flex;
