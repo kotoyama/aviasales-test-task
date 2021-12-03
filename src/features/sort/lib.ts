@@ -1,5 +1,14 @@
 import { Score, Ticket, Sort, SortType } from '~/entities'
 
+/** @description Считаем оптимальность
+ * по трём критериям:
+ * - цена билета
+ * - длительность перелёта
+ * - количество пересадок
+ *
+ * Итоговая оптимальность является
+ * суммой произведения значений переменных на их вес:
+ * чем меньше значение, тем оптимальнее билет */
 const getOptimalityScore = (ticket: Ticket): number => {
   const priceScore = ticket.price * Score.PRICE
   const durationScore = (ticket.totalDuration / 60) * Score.HOUR

@@ -28,11 +28,18 @@ $filters
     filters.map((item) => ({ ...item, active: !active })),
   )
 
+/** @description Тогглим фильтр «Все»
+ * при обновлении стора, который следит
+ * за состоянием всех остальных фильтров */
 forward({
   from: $everyFilterApplied,
   to: toggleAllFilter,
 })
 
+/** @description В зависимости от типа фильтра решаем,
+ * какое из событий будет вызвано:
+ * - Фильтр «Все»: тогглим все фильтры
+ * - Фильтр «N пересадок»: тогглим соответствующий фильтр */
 split({
   source: filterChanged,
   match: {
@@ -45,6 +52,8 @@ split({
   },
 })
 
+/** @description Тогглим все фильтры
+ * при клике на фильтр «Все» */
 sample({
   clock: checkAllFilter,
   source: $allFilterActivated,
