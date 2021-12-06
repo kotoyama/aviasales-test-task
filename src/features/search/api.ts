@@ -1,20 +1,16 @@
-import { attach, Effect } from 'effector'
-
 import { SearchIdEntity, TicketsEntity } from '~/entities'
 
-import { Response, requestFx } from '~/lib/request'
+import { Response, request } from '~/lib/request'
 
-export const getSearchIdReqFx: Effect<void, Response<SearchIdEntity>> = attach({
-  effect: requestFx,
-  mapParams: () => ({
+export const getSearchIdReq = (): Promise<Response<SearchIdEntity>> =>
+  request<SearchIdEntity>({
     path: '/search',
-  }),
-})
+  })
 
-export const getTicketsReqFx: Effect<string, Response<TicketsEntity>> = attach({
-  effect: requestFx,
-  mapParams: (searchId: string) => ({
+export const getTicketsReq = (
+  searchId: string,
+): Promise<Response<TicketsEntity>> =>
+  request<TicketsEntity>({
     path: '/tickets',
     params: { searchId },
-  }),
-})
+  })

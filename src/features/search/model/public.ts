@@ -1,7 +1,15 @@
-import { attach, guard } from 'effector'
+import { guard } from 'effector'
+import { root } from '~/root'
 
-import { getSearchIdReqFx } from '../api'
+import { SearchIdEntity } from '~/entities'
+
+import { Response } from '~/lib/request'
+
 import { loadTicketsFx } from './private'
+
+export const search = root.domain('search-public')
+
+export const loadSearchIdFx = search.effect<void, Response<SearchIdEntity>>()
 
 export const searchContinues = guard(loadTicketsFx.doneData, {
   filter: (res) => !res.body.stop,
@@ -9,8 +17,4 @@ export const searchContinues = guard(loadTicketsFx.doneData, {
 
 export const searchCompleted = guard(loadTicketsFx.doneData, {
   filter: (res) => res.body.stop,
-})
-
-export const loadSearchIdFx = attach({
-  effect: getSearchIdReqFx,
 })

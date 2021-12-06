@@ -1,7 +1,8 @@
-import { attach } from 'effector'
+import { root } from '~/root'
 
-import { getCurrencyRatesReqFx } from '../api'
+import { Rates } from '~/entities'
 
-export const loadCurrencyRatesFx = attach({
-  effect: getCurrencyRatesReqFx,
-})
+import { Response } from '~/lib/request'
+
+export const currency = root.domain('currency-public')
+export const loadCurrencyRatesFx = currency.effect<void, Response<Rates>>()

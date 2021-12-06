@@ -15,7 +15,7 @@ const presetEnv = {
   modules: false,
   shippedProposals: true,
   targets: {
-    node: '12',
+    node: 'current',
     browsers: [
       'last 2 Chrome versions',
       'last 2 Firefox versions',

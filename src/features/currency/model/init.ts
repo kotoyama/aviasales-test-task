@@ -1,5 +1,8 @@
 import { $currencies, currencyChanged } from './private'
 import { loadCurrencyRatesFx } from './public'
+import { getCurrencyRatesReq } from '../api'
+
+loadCurrencyRatesFx.use(getCurrencyRatesReq)
 
 $currencies
   .on(loadCurrencyRatesFx.doneData, (currencies, res) =>
