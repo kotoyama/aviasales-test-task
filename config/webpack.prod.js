@@ -142,10 +142,6 @@ module.exports = merge(common, {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: paths.appFavicon,
-          to: './',
-        },
-        {
           from: paths.appManifest,
           to: './',
         },
