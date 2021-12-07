@@ -22,18 +22,24 @@ $limit
   .on(limitChanged, (limit) => limit + CHUNK_SIZE)
   .reset([$activeSort.updates, $activeFilters.updates])
 
+/** @description Блокируем запуск аналогичного таймера,
+ * если он уже был запущен, иначе - запускаем */
 guard({
   source: searchContinues,
   filter: $canStartTimer,
   target: timerFx,
 })
 
+/** @description Зацикливаем выполнение таймера
+ * пока поиск продолжается */
 guard({
   source: timerFx.done,
   filter: $loading,
   target: timerFx,
 })
 
+/** @description Кэшируем билеты при первом удачном
+ * ответе сервера и далее по интервалу */
 sample({
   clock: timerFx.done,
   source: $rawTickets,

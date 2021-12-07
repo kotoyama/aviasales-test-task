@@ -10,6 +10,10 @@ const generateLabel = (stops: number) =>
 const segmentHasAmountOfStops = (stops: number) => (segment: SegmentEntity) =>
   segment.stops.length === stops
 
+/** @description Непонятно, как считать пересадки
+ * с учётом того, что у нас билет в обе стороны,
+ * поэтому пускай будет достаточно совпадения
+ * хотя бы в одном из сегментов */
 export const hasAmountOfStops =
   (stops: number) =>
   (ticket: Ticket): boolean =>
