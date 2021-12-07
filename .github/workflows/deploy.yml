@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Setup Node 14
         uses: actions/setup-node@v2
@@ -21,6 +21,7 @@ jobs:
         run: |
           yarn install
           yarn build
+
       - name: Deploy to Production
         uses: amondnet/vercel-action@v20
         with:
