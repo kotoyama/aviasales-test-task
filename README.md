@@ -1,5 +1,8 @@
 # ✈ aviasales-test-task
 
+Описание задания можно посмотреть [здесь](https://github.com/KosyanMedia/test-tasks/tree/master/aviasales_frontend).<br />
+С задеплоенным приложением можно ознакомиться [тут](https://aviasales-test-task-theta.vercel.app/).
+
 ## Как запустить
 
 
