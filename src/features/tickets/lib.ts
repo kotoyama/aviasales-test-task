@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 
-import { Ticket, TicketEntity } from '~/entities'
+import { Carrier, Ticket, TicketEntity } from '~/entities'
 
 export const formatDuration = (minutes: number): string => {
   const hh = Math.floor(minutes / 60)
@@ -38,4 +38,5 @@ export const normalizeTickets = (tickets: TicketEntity[]): Ticket[] =>
       0,
     ),
     totalStops: item.segments.reduce((acc, { stops }) => acc + stops.length, 0),
+    carrierName: Carrier[item.carrier],
   }))

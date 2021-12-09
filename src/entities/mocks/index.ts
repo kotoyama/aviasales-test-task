@@ -264,6 +264,7 @@ export const ticketsMock: Ticket[] = [
   {
     price: 19183,
     carrier: 'S7',
+    carrierName: 'S7 Airlines',
     segments: [
       {
         origin: 'MOW',
@@ -288,6 +289,7 @@ export const ticketsMock: Ticket[] = [
   {
     price: 64485,
     carrier: 'S7',
+    carrierName: 'S7 Airlines',
     segments: [
       {
         origin: 'MOW',

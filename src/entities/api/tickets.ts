@@ -1,3 +1,13 @@
+export enum Carrier {
+  FV = 'Rossiya Airlines',
+  EY = 'Etihad Airways',
+  MH = 'Malaysia Airlines',
+  EK = 'Emirates Airlines',
+  TG = 'Thai Airways',
+  S7 = 'S7 Airlines',
+  SU = 'Aeroflot',
+}
+
 /**
  * API response entities
  */
@@ -23,7 +33,7 @@ export interface TicketEntity {
   // Цена в рублях
   price: number
   // Код авиакомпании (iata)
-  carrier: string
+  carrier: keyof typeof Carrier
   // Массив перелётов
   // В тестовом задании это всегда поиск "туда-обратно", значит, состоит из двух элементов
   segments: [SegmentEntity, SegmentEntity]
@@ -43,4 +53,5 @@ export interface Ticket extends TicketEntity {
   logo: string
   totalDuration: number
   totalStops: number
+  carrierName: `${Carrier}`
 }

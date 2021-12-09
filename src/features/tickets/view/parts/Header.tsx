@@ -5,15 +5,15 @@ import { Ticket } from '~/entities'
 import { useCurrency } from '~/features/currency'
 import { formatPrice } from '~/lib/price'
 
-type Props = Omit<Ticket, 'id' | 'segments' | 'totalDuration' | 'totalStops'>
+type Props = Pick<Ticket, 'logo' | 'carrierName' | 'price'>
 
-export const Header: React.FC<Props> = ({ price, logo, carrier }) => {
+export const Header: React.FC<Props> = ({ price, logo, carrierName }) => {
   const currency = useCurrency()
   return (
     <Wrap>
       <Price>{formatPrice(price, currency)}</Price>
       <LogoWrap>
-        <Logo src={logo} alt={carrier} />
+        <Logo src={logo} title={carrierName} alt={carrierName} />
       </LogoWrap>
     </Wrap>
   )
