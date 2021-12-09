@@ -1,5 +1,4 @@
 import { Ticket, Transfer, Filter, SegmentEntity } from '~/entities'
-
 import { plural } from '~/lib/plural'
 
 const generateLabel = (stops: number) =>

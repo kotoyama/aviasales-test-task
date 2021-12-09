@@ -3,7 +3,6 @@ import { styled } from '@linaria/react'
 import { useStore } from 'effector-react'
 
 import { plural } from '~/lib/plural'
-
 import { Button } from '~/ui/components'
 
 import { Card, Placeholder } from '../containers'

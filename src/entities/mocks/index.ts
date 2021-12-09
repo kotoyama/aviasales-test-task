@@ -310,3 +310,15 @@ export const ticketsMock: Ticket[] = [
     totalStops: 3,
   },
 ]
+
+export const segmentMock = {
+  origin: 'MOW',
+  destination: 'HKT',
+  date: '2021-09-30T00:18:00.000Z',
+  stops: [],
+  duration: 1785,
+}
+
+export const timezoneMock = {
+  timeZone: 'Asia/Yekaterinburg',
+}
