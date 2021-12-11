@@ -1,9 +1,11 @@
+@import './normalize.css';
+
 /* fonts */
 @font-face {
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 400;
-  src: url('./ui/fonts/OpenSans-Regular.ttf') format('truetype');
+  src: url('./fonts/OpenSans-Regular.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -11,7 +13,7 @@
   font-family: 'OpenSans';
   font-style: normal;
   font-weight: 600;
-  src: url('./ui/fonts/OpenSans-SemiBold.ttf') format('truetype');
+  src: url('./fonts/OpenSans-SemiBold.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -42,19 +44,6 @@
   --color-radio-hover: var(--color-lightazure);
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--font-family-main);
   font-size: var(--font-size-main);
@@ -62,39 +51,4 @@ body {
   line-height: var(--line-height-main);
   color: var(--color-text-main);
   background-color: var(--color-bg-main);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
-
-ul,
-li {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-  border: 0;
-  outline: none;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  border: 0;
 }

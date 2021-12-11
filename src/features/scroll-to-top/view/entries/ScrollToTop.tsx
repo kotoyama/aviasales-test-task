@@ -2,7 +2,6 @@ import React from 'react'
 import { styled } from '@linaria/react'
 
 import { classNames } from '~/lib/classNames'
-
 import { Icon } from '~/ui/components'
 
 export const ScrollToTop: React.FC = () => {
@@ -28,7 +27,11 @@ export const ScrollToTop: React.FC = () => {
   }, [onScrollHandler])
 
   return (
-    <Button className={classNames({ show: showButton })} onClick={scrollTop}>
+    <Button
+      aria-label="scroll to top"
+      className={classNames({ show: showButton })}
+      onClick={scrollTop}
+    >
       <Icon icon="arrow" />
     </Button>
   )

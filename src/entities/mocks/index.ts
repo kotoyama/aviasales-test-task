@@ -263,7 +263,10 @@ export const ticketsRes = {
 export const ticketsMock: Ticket[] = [
   {
     price: 19183,
-    carrier: 'S7',
+    carrier: {
+      code: 'S7',
+      name: 'S7 Airlines',
+    },
     segments: [
       {
         origin: 'MOW',
@@ -281,13 +284,19 @@ export const ticketsMock: Ticket[] = [
       },
     ],
     id: '7h9PLt2UGn9drb9I44teT',
-    logo: 'https://pics.avs.io/99/36/S7.png',
+    logo: {
+      url: 'https://pics.avs.io/99/36/S7.png',
+      size: [99, 36],
+    },
     totalDuration: 3503,
     totalStops: 4,
   },
   {
     price: 64485,
-    carrier: 'S7',
+    carrier: {
+      code: 'S7',
+      name: 'S7 Airlines',
+    },
     segments: [
       {
         origin: 'MOW',
@@ -305,8 +314,23 @@ export const ticketsMock: Ticket[] = [
       },
     ],
     id: 'l3pHbn6IZubUTzDeVO8r5',
-    logo: 'https://pics.avs.io/99/36/S7.png',
+    logo: {
+      url: 'https://pics.avs.io/99/36/S7.png',
+      size: [99, 36],
+    },
     totalDuration: 2605,
     totalStops: 3,
   },
 ]
+
+export const segmentMock = {
+  origin: 'MOW',
+  destination: 'HKT',
+  date: '2021-09-30T00:18:00.000Z',
+  stops: [],
+  duration: 1785,
+}
+
+export const timezoneMock = {
+  timeZone: 'Asia/Yekaterinburg',
+}

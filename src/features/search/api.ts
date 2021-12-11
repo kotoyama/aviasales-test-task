@@ -1,7 +1,6 @@
 import { attach, Effect } from 'effector'
 
 import { SearchIdEntity, TicketsEntity } from '~/entities'
-
 import { Response, requestFx } from '~/lib/request'
 
 export const getSearchIdReqFx: Effect<void, Response<SearchIdEntity>> = attach({
