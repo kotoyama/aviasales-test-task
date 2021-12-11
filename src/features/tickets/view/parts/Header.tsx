@@ -5,16 +5,20 @@ import { Ticket } from '~/entities'
 import { useCurrency } from '~/features/currency'
 import { formatPrice } from '~/lib/price'
 
-type Props = Pick<Ticket, 'logo' | 'carrierName' | 'price'>
+type Props = Pick<Ticket, 'price' | 'logo' | 'carrier'>
 
-export const Header: React.FC<Props> = ({ price, logo, carrierName }) => {
+export const Header: React.FC<Props> = ({ price, logo, carrier }) => {
   const currency = useCurrency()
   return (
     <Wrap>
       <Price>{formatPrice(price, currency)}</Price>
-      <LogoWrap>
-        <Logo src={logo} title={carrierName} alt={carrierName} />
-      </LogoWrap>
+      <Logo
+        src={logo.url}
+        width={logo.size[0]}
+        height={logo.size[1]}
+        title={carrier.name}
+        alt={carrier.name}
+      />
     </Wrap>
   )
 }
@@ -30,10 +34,4 @@ const Price = styled.span`
   color: var(--color-blue);
 `
 
-const LogoWrap = styled.div`
-  height: 36px;
-`
-
-const Logo = styled.img`
-  height: auto;
-`
+const Logo = styled.img``

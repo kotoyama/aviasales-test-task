@@ -1,4 +1,4 @@
-export enum Carrier {
+export enum AirlineCode {
   FV = 'Rossiya Airlines',
   EY = 'Etihad Airways',
   MH = 'Malaysia Airlines',
@@ -33,7 +33,7 @@ export interface TicketEntity {
   // Цена в рублях
   price: number
   // Код авиакомпании (iata)
-  carrier: keyof typeof Carrier
+  carrier: keyof typeof AirlineCode
   // Массив перелётов
   // В тестовом задании это всегда поиск "туда-обратно", значит, состоит из двух элементов
   segments: [SegmentEntity, SegmentEntity]
@@ -48,10 +48,20 @@ export interface TicketsEntity {
  * Transformed view-ready entities
  */
 
-export interface Ticket extends TicketEntity {
+export interface Logo {
+  url: string
+  size: number[]
+}
+
+export interface Carrier {
+  code: keyof typeof AirlineCode
+  name: `${AirlineCode}`
+}
+
+export interface Ticket extends Omit<TicketEntity, 'carrier'> {
   id: string
-  logo: string
+  logo: Logo
+  carrier: Carrier
   totalDuration: number
   totalStops: number
-  carrierName: `${Carrier}`
 }

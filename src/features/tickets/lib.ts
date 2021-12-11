@@ -1,6 +1,8 @@
 import { nanoid } from 'nanoid'
 
-import { Carrier, Ticket, TicketEntity } from '~/entities'
+import { AirlineCode, Ticket, TicketEntity } from '~/entities'
+
+const PICS_CDN_URL = `${process.env.PICS_CDN_URL}`
 
 export const formatDuration = (minutes: number): string => {
   const hh = Math.floor(minutes / 60)
@@ -32,11 +34,17 @@ export const normalizeTickets = (tickets: TicketEntity[]): Ticket[] =>
   tickets.map((item) => ({
     ...item,
     id: nanoid(),
-    logo: `${process.env.PICS_CDN_URL}/${item.carrier}.png`,
+    logo: {
+      url: `${PICS_CDN_URL}/${item.carrier}.png`,
+      size: PICS_CDN_URL.split('/').map(Number).filter(Boolean),
+    },
+    carrier: {
+      code: item.carrier,
+      name: AirlineCode[item.carrier],
+    },
     totalDuration: item.segments.reduce(
       (acc, { duration }) => acc + duration,
       0,
     ),
     totalStops: item.segments.reduce((acc, { stops }) => acc + stops.length, 0),
-    carrierName: Carrier[item.carrier],
   }))

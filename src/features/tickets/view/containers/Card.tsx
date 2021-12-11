@@ -12,11 +12,7 @@ type Props = {
 
 export const Card: React.FC<Props> = React.memo(({ ticket }) => (
   <Wrapper>
-    <Header
-      logo={ticket.logo}
-      price={ticket.price}
-      carrierName={ticket.carrierName}
-    />
+    <Header price={ticket.price} logo={ticket.logo} carrier={ticket.carrier} />
     <Segments>
       {ticket.segments.map((segment) => (
         <Segment key={nanoid()} segment={segment} />

@@ -27,7 +27,11 @@ export const ScrollToTop: React.FC = () => {
   }, [onScrollHandler])
 
   return (
-    <Button className={classNames({ show: showButton })} onClick={scrollTop}>
+    <Button
+      aria-label="scroll to top"
+      className={classNames({ show: showButton })}
+      onClick={scrollTop}
+    >
       <Icon icon="arrow" />
     </Button>
   )
