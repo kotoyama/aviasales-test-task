@@ -26,8 +26,12 @@ const StyledButtonGroup = styled.div`
   grid-column: 2 / 3;
   grid-row: span 1;
 
-  ${lessThan('md')} {
+  ${lessThan('lg')} {
     grid-column: 1;
     grid-row: 2 / 3;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 20px;
   }
 `

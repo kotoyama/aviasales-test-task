@@ -10,14 +10,15 @@ export const Sidebar: React.FC = ({ children }) => (
 )
 
 const Wrap = styled.aside`
-  height: fit-content;
+  display: grid;
   grid-column: 1 / 2;
   grid-row: 1 / 3;
+  height: fit-content;
   border-radius: var(--border-radius-main);
   box-shadow: var(--box-shadow-main);
   background-color: var(--color-white);
 
-  ${lessThan('md')} {
+  ${lessThan('lg')} {
     grid-column: 1;
     grid-row: 1 / 2;
   }

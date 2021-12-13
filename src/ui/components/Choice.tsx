@@ -1,6 +1,8 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
+import { greaterThan } from '../theme'
+
 type Props = {
   label: string
 } & React.InputHTMLAttributes<HTMLInputElement>
@@ -13,14 +15,16 @@ export const Choice: React.FC<Props> = ({ id, label, ...props }) => (
 )
 
 const Wrap = styled.div`
-  &:first-child label {
-    border-right: none;
-    border-radius: var(--border-radius-main) 0 0 var(--border-radius-main);
-  }
+  ${greaterThan('sm')} {
+    &:first-child label {
+      border-right: none;
+      border-radius: var(--border-radius-main) 0 0 var(--border-radius-main);
+    }
 
-  &:last-child label {
-    border-left: none;
-    border-radius: 0 var(--border-radius-main) var(--border-radius-main) 0;
+    &:last-child label {
+      border-left: none;
+      border-radius: 0 var(--border-radius-main) var(--border-radius-main) 0;
+    }
   }
 `
 
@@ -42,6 +46,7 @@ const Label = styled.label`
   color: var(--color-blue);
   cursor: pointer;
   user-select: none;
+  text-align: center;
 
   &:hover {
     background-color: var(--color-radio-hover);

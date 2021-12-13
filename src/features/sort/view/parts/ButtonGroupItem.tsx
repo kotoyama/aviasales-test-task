@@ -34,6 +34,7 @@ const GroupItem = styled.div`
   }
 
   button {
+    min-width: 150px;
     border-radius: 0;
   }
 

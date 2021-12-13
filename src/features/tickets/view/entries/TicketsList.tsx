@@ -47,7 +47,7 @@ export const TicketsList: React.FC = () => {
 const Wrap = styled.div`
   grid-column: 2 / 3;
 
-  ${lessThan('md')} {
+  ${lessThan('lg')} {
     grid-column: 1;
     grid-row: 3 / 4;
   }

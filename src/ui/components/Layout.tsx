@@ -18,7 +18,11 @@ const InnerWrap = styled.div`
   width: 80%;
   margin: 0 auto;
 
-  ${lessThan('md')} {
+  ${lessThan('xl')} {
     width: 90%;
+  }
+
+  ${lessThan('lg')} {
+    width: 95%;
   }
 `

@@ -12,7 +12,7 @@ const Wrap = styled.main`
   grid-template-columns: 1fr minmax(auto, 2fr);
   padding-bottom: 20px;
 
-  ${lessThan('md')} {
+  ${lessThan('lg')} {
     grid-template-rows: auto auto auto;
     grid-template-columns: 1fr;
   }
