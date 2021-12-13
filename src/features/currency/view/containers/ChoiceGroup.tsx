@@ -2,7 +2,7 @@ import React from 'react'
 import { useList } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { Choice } from '~/ui/components'
+import { Choice } from '~/ui'
 
 import { $currencies, currencyChanged } from '../../model/private'
 

@@ -1,6 +1,8 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
+import { lessThan } from '../theme'
+
 export const Layout: React.FC = ({ children }) => (
   <Wrap>
     <InnerWrap>{children}</InnerWrap>
@@ -16,7 +18,7 @@ const InnerWrap = styled.div`
   width: 80%;
   margin: 0 auto;
 
-  @media (max-width: 768px) {
+  ${lessThan('md')} {
     width: 90%;
   }
 `

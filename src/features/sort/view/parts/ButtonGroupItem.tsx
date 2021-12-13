@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { Button } from '~/ui/components'
+import { Button } from '~/ui'
 
 type Props = {
   id: string

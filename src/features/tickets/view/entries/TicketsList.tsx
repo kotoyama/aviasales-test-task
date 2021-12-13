@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 import { useStore } from 'effector-react'
 
 import { plural } from '~/lib/plural'
-import { Button } from '~/ui/components'
+import { Button, lessThan } from '~/ui'
 
 import { Card, Placeholder } from '../containers'
 import {
@@ -47,7 +47,7 @@ export const TicketsList: React.FC = () => {
 const Wrap = styled.div`
   grid-column: 2 / 3;
 
-  @media (max-width: 768px) {
+  ${lessThan('md')} {
     grid-column: 1;
     grid-row: 3 / 4;
   }

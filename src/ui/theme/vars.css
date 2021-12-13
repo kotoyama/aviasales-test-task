@@ -1,0 +1,26 @@
+:root {
+  /* palette */
+  --color-white: #ffffff;
+  --color-blue: #2196f3;
+  --color-black: #4a4a4a;
+  --color-gray: #a0b0b9;
+  --color-lightazure: #f2fcff;
+  --color-lightgray: #dfe5ec;
+  --color-grayblue: #9abbce;
+  --color-lightblue: #f3f7fa;
+  --color-transparent: rgba(0, 0, 0, 0.1);
+  --color-placeholder: #e2e2e2;
+  --color-blue-transparent: rgba(33, 150, 243, 0.3);
+
+  /* global */
+  --font-size-main: 12px;
+  --font-weight-main: 600;
+  --line-height-main: 1.7;
+  --border-radius-main: 5px;
+  --font-family-main: 'OpenSans', sans-serif;
+  --color-bg-main: var(--color-lightblue);
+  --color-text-main: var(--color-black);
+  --box-shadow-main: 0px 2px 8px var(--color-transparent);
+  --color-button-focus: var(--color-blue-transparent);
+  --color-radio-hover: var(--color-lightazure);
+}

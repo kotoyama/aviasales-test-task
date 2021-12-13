@@ -2,6 +2,8 @@ import React from 'react'
 import { useList } from 'effector-react'
 import { styled } from '@linaria/react'
 
+import { lessThan } from '~/ui'
+
 import { ButtonGroupItem } from '../parts'
 import { $sortGroup, sortChanged } from '../../model/private'
 
@@ -24,7 +26,7 @@ const StyledButtonGroup = styled.div`
   grid-column: 2 / 3;
   grid-row: span 1;
 
-  @media (max-width: 768px) {
+  ${lessThan('md')} {
     grid-column: 1;
     grid-row: 2 / 3;
   }

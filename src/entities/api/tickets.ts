@@ -8,6 +8,16 @@ export enum AirlineCode {
   SU = 'Aeroflot',
 }
 
+export interface Logo {
+  url: string
+  size: number[]
+}
+
+export interface Carrier {
+  code: keyof typeof AirlineCode
+  name: `${AirlineCode}`
+}
+
 /**
  * API response entities
  */
@@ -47,16 +57,6 @@ export interface TicketsEntity {
 /**
  * Transformed view-ready entities
  */
-
-export interface Logo {
-  url: string
-  size: number[]
-}
-
-export interface Carrier {
-  code: keyof typeof AirlineCode
-  name: `${AirlineCode}`
-}
 
 export interface Ticket extends Omit<TicketEntity, 'carrier'> {
   id: string

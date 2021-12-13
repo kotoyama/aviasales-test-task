@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 import { ReactComponent as Logo } from '../icons/logo.svg'
 import { ReactComponent as Check } from '../icons/check.svg'

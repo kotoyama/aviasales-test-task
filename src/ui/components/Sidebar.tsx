@@ -1,6 +1,8 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
+import { lessThan } from '../theme'
+
 export const Sidebar: React.FC = ({ children }) => (
   <Wrap>
     <InnerWrap>{children}</InnerWrap>
@@ -15,7 +17,7 @@ const Wrap = styled.aside`
   box-shadow: var(--box-shadow-main);
   background-color: var(--color-white);
 
-  @media (max-width: 768px) {
+  ${lessThan('md')} {
     grid-column: 1;
     grid-row: 1 / 2;
   }

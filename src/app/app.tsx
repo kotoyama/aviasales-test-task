@@ -5,7 +5,7 @@ import { Filters } from '~/features/filters'
 import { CurrencySwitcher } from '~/features/currency'
 import { ScrollToTop } from '~/features/scroll-to-top'
 import { TicketsList, LoadingBar } from '~/features/tickets'
-import { Container, Layout, Sidebar, Logo } from '~/ui/components'
+import { Container, Layout, Sidebar, Logo } from '~/ui'
 
 import '../init'
 import { AppGate } from './model'
