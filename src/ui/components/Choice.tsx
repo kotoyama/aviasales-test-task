@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { greaterThan } from '../theme'
+import { greaterThan, lessThan } from '../theme'
 
 type Props = {
   label: string
@@ -24,6 +24,18 @@ const Wrap = styled.div`
     &:last-child label {
       border-left: none;
       border-radius: 0 var(--border-radius-main) var(--border-radius-main) 0;
+    }
+  }
+
+  ${lessThan('sm')} {
+    &:first-child label {
+      border-bottom: none;
+      border-radius: var(--border-radius-main) var(--border-radius-main) 0 0;
+    }
+
+    &:last-child label {
+      border-top: none;
+      border-radius: 0 0 var(--border-radius-main) var(--border-radius-main);
     }
   }
 `
