@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 import { useStore } from 'effector-react'
 
 import { plural } from '~/lib/plural'
-import { Button } from '~/ui/components'
+import { Button, lessThan } from '~/ui'
 
 import { Card, Placeholder } from '../containers'
 import {
@@ -25,7 +25,7 @@ export const TicketsList: React.FC = () => {
 
   return (
     <Wrap>
-      <List>
+      <ul>
         {firstChunkLoaded
           ? results
               .slice(0, limit)
@@ -34,7 +34,7 @@ export const TicketsList: React.FC = () => {
         {results.length === 0 && !loading && (
           <NotFound>Ничего не найдено</NotFound>
         )}
-      </List>
+      </ul>
       {results.length > 0 && canLoadMore && (
         <Button onClick={() => limitChanged()}>
           Показать ещё {plural(CHUNK_SIZE, ['билет', 'билета', 'билетов'])}!
@@ -47,13 +47,11 @@ export const TicketsList: React.FC = () => {
 const Wrap = styled.div`
   grid-column: 2 / 3;
 
-  @media (max-width: 768px) {
-    grid-column: 1;
+  ${lessThan('lg')} {
     grid-row: 3 / 4;
+    grid-column: 1;
   }
 `
-
-const List = styled.ul``
 
 const NotFound = styled.h2`
   font-size: 18px;

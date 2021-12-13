@@ -2,7 +2,7 @@ import React from 'react'
 import { useList } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { Choice } from '~/ui/components'
+import { Choice, greaterThan } from '~/ui'
 
 import { $currencies, currencyChanged } from '../../model/private'
 
@@ -21,5 +21,7 @@ export const ChoiceGroup: React.FC = () => (
 )
 
 const StyledChoiceGroup = styled.div`
-  display: flex;
+  ${greaterThan('sm')} {
+    display: inline-flex;
+  }
 `

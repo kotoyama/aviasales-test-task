@@ -50,8 +50,8 @@ const Wrap = styled.div`
 
 const RowWrap = styled.div`
   display: flex;
-  flex-direction: column;
   flex-basis: calc(100% / 3);
+  flex-direction: column;
 
   &:not(:last-child) {
     padding-right: 20px;
@@ -60,9 +60,9 @@ const RowWrap = styled.div`
 
 const Title = styled.span`
   line-height: 1.5;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
   color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 `
 
 const Description = styled.span`

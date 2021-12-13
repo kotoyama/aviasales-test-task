@@ -45,10 +45,10 @@ const StyledCheckbox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
-  margin-left: 20px;
   width: 20px;
   height: 20px;
-  border-radius: 2px;
+  margin-right: 10px;
+  margin-left: 20px;
   border: 1px solid var(--color-grayblue);
+  border-radius: 2px;
 `

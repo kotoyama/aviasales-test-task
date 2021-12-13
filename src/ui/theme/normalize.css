@@ -28,6 +28,7 @@ li {
 }
 
 button {
+  padding: 0;
   font: inherit;
   cursor: pointer;
   border: 0;

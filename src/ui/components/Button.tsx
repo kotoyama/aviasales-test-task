@@ -12,9 +12,9 @@ export const Button: React.FC<Props> = ({ children, ...props }) => (
 const StyledButton = styled.button`
   width: 100%;
   height: 50px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
   color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   background-color: var(--color-blue);
   border: 1px solid var(--color-blue);
   border-radius: var(--border-radius-main);

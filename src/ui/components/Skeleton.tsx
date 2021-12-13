@@ -27,11 +27,11 @@ export const Skeleton: React.FC<Props> = ({
 
 const StyledSkeleton = styled.div`
   display: inline-block;
-  background-color: var(--color-placeholder);
-  background-size: 200px 100%;
-  background-repeat: no-repeat;
-  border-radius: 4px;
   width: 100%;
+  background-color: var(--color-placeholder);
+  background-repeat: no-repeat;
+  background-size: 200px 100%;
+  border-radius: 4px;
   animation: pulse 0.6s ease-in-out alternate infinite;
 
   @keyframes pulse {
