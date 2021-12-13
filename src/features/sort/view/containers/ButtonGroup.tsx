@@ -23,15 +23,15 @@ export const ButtonGroup: React.FC = () => (
 const StyledButtonGroup = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column: 2 / 3;
   grid-row: span 1;
+  grid-column: 2 / 3;
 
   ${lessThan('lg')} {
-    grid-column: 1;
     grid-row: 2 / 3;
-    white-space: nowrap;
+    grid-column: 1;
+    padding: 0 0 20px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 0 20px;
+    white-space: nowrap;
   }
 `

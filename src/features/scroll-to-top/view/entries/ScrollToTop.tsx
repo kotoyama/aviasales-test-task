@@ -39,20 +39,20 @@ export const ScrollToTop: React.FC = () => {
 
 const Button = styled.button`
   position: fixed;
-  bottom: 30px;
   right: 30px;
+  bottom: 30px;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(0);
-  box-shadow: var(--box-shadow-main);
   background-color: var(--color-white);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow-main);
+  opacity: 0;
   transition: all 200ms;
+  transform: scale(0);
 
   &.show {
     opacity: 1;

@@ -11,7 +11,7 @@ export const Logo: React.FC = () => (
 
 const Header = styled.header`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 160px;
 `

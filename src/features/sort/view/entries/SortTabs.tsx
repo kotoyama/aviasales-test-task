@@ -13,13 +13,13 @@ export const SortTabs: React.FC = () => (
 
 const StyledTabs = styled.div`
   ${lessThan('lg')} {
-    overflow: hidden;
     width: 100%;
+    overflow: hidden;
 
     &:after {
-      content: '';
       display: block;
       margin-bottom: -20px;
+      content: '';
     }
   }
 `

@@ -39,14 +39,14 @@ const Input = styled.input`
 const Label = styled.label`
   display: block;
   padding: 12px 40px;
-  border: 1px solid var(--color-lightgray);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
   color: var(--color-blue);
+  text-align: center;
   cursor: pointer;
   user-select: none;
-  text-align: center;
+  border: 1px solid var(--color-lightgray);
 
   &:hover {
     background-color: var(--color-radio-hover);

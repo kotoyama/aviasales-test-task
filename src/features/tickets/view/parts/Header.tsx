@@ -12,7 +12,7 @@ export const Header: React.FC<Props> = ({ price, logo, carrier }) => {
   return (
     <Wrap>
       <Price>{formatPrice(price, currency)}</Price>
-      <Logo
+      <img
         src={logo.url}
         width={logo.size[0]}
         height={logo.size[1]}
@@ -33,5 +33,3 @@ const Price = styled.span`
   font-size: 24px;
   color: var(--color-blue);
 `
-
-const Logo = styled.img``

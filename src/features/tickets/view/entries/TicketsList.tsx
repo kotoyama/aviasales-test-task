@@ -25,7 +25,7 @@ export const TicketsList: React.FC = () => {
 
   return (
     <Wrap>
-      <List>
+      <ul>
         {firstChunkLoaded
           ? results
               .slice(0, limit)
@@ -34,7 +34,7 @@ export const TicketsList: React.FC = () => {
         {results.length === 0 && !loading && (
           <NotFound>Ничего не найдено</NotFound>
         )}
-      </List>
+      </ul>
       {results.length > 0 && canLoadMore && (
         <Button onClick={() => limitChanged()}>
           Показать ещё {plural(CHUNK_SIZE, ['билет', 'билета', 'билетов'])}!
@@ -48,12 +48,10 @@ const Wrap = styled.div`
   grid-column: 2 / 3;
 
   ${lessThan('lg')} {
-    grid-column: 1;
     grid-row: 3 / 4;
+    grid-column: 1;
   }
 `
-
-const List = styled.ul``
 
 const NotFound = styled.h2`
   font-size: 18px;

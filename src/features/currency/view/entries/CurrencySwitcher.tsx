@@ -18,6 +18,6 @@ const Title = styled.span`
   display: block;
   margin-bottom: 10px;
   line-height: 1;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 `

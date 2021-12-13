@@ -16,9 +16,9 @@ const Wrap = styled.div`
 
 const Title = styled.span`
   display: block;
-  margin-left: 20px;
   margin-bottom: 10px;
+  margin-left: 20px;
   line-height: 1;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 `

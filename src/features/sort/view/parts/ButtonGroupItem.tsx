@@ -25,6 +25,11 @@ export const ButtonGroupItem: React.FC<Props> = ({
 )
 
 const GroupItem = styled.div`
+  button {
+    min-width: 150px;
+    border-radius: 0;
+  }
+
   &:first-child button {
     border-radius: var(--border-radius-main) 0 0 var(--border-radius-main);
   }
@@ -33,16 +38,11 @@ const GroupItem = styled.div`
     border-radius: 0 var(--border-radius-main) var(--border-radius-main) 0;
   }
 
-  button {
-    min-width: 150px;
-    border-radius: 0;
-  }
-
   &[aria-checked='false'] {
     button {
+      color: var(--color-black);
       background-color: var(--color-white);
       border-color: var(--color-lightgray);
-      color: var(--color-black);
     }
 
     &:not(:last-child) button {

@@ -1,8 +1,10 @@
 {
   "extends": [
     "stylelint-config-recommended",
-    "stylelint-config-recess-order"
+    "stylelint-config-recess-order",
+    "@linaria/stylelint"
   ],
+  "customSyntax": "@stylelint/postcss-css-in-js",
   "plugins": [
     "stylelint-order"
   ],
