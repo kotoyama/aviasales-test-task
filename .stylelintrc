@@ -7,8 +7,5 @@
   "customSyntax": "@stylelint/postcss-css-in-js",
   "plugins": [
     "stylelint-order"
-  ],
-  "rules": {
-    "selector-pseudo-class-no-unknown": null
-  }
+  ]
 }
