@@ -7,10 +7,8 @@ const breakpoints = {
 
 type Breakpoint = keyof typeof breakpoints
 
-const breakpoint = (value: Breakpoint) => `${breakpoints[value]}px`
-
 export const greaterThan = (value: Breakpoint) =>
-  `@media (min-width: ${breakpoint(value)})`
+  `@media (min-width: calc(${breakpoints[value] + 0.02}px))`
 
 export const lessThan = (value: Breakpoint) =>
-  `@media (max-width: ${breakpoint(value)})`
+  `@media (max-width: ${breakpoints[value]}px)`
