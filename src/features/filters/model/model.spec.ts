@@ -46,6 +46,8 @@ describe('filters model', () => {
     expect(changeFn).toHaveBeenCalledTimes(1)
     expect(toggleFn).toHaveBeenCalledTimes(1)
     expect(checkFn).not.toHaveBeenCalled()
+    expect(changeFn).toHaveBeenCalledWith(Transfer.TWO)
+    expect(toggleFn).toHaveBeenCalledWith(Transfer.TWO)
 
     checkFn.mockReset()
     changeFn.mockReset()
@@ -59,26 +61,6 @@ describe('filters model', () => {
     expect(changeFn).toHaveBeenCalledTimes(1)
     expect(checkFn).toHaveBeenCalledTimes(1)
     expect(toggleFn).not.toHaveBeenCalled()
-  })
-
-  test('should accept correct arguments for each event', async () => {
-    await allSettled(filterChanged, {
-      params: Transfer.THREE,
-      scope,
-    })
-
-    expect(changeFn).toHaveBeenCalledWith(Transfer.THREE)
-    expect(toggleFn).toHaveBeenCalledWith(Transfer.THREE)
-
-    checkFn.mockReset()
-    changeFn.mockReset()
-    toggleFn.mockReset()
-
-    await allSettled(filterChanged, {
-      params: Transfer.ALL,
-      scope,
-    })
-
     expect(changeFn).toHaveBeenCalledWith(Transfer.ALL)
     expect(checkFn).toHaveBeenCalledWith(Transfer.ALL)
   })

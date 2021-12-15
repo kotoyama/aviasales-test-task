@@ -32,6 +32,7 @@ describe('sort model', () => {
     const sortGroup = scope.getState($sortGroup)
 
     expect(changeFn).toHaveBeenCalledTimes(1)
+    expect(changeFn).toHaveBeenCalledWith(SortType.FASTEST)
     expect(activeSort.type).toBe(SortType.FASTEST)
     sortGroup
       .filter((sort) => sort.type !== activeSort.type)
