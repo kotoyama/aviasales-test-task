@@ -1,6 +1,10 @@
-import { segmentMock, timezoneMock } from '~/entities/mocks'
+import { segmentMock } from '~/entities/mocks/tickets'
 
 import { getTimeFromDate, formatDuration, getTimeInterval } from './lib'
+
+const timezoneMock = {
+  timeZone: 'Asia/Yekaterinburg',
+}
 
 describe('tickets lib', () => {
   describe('formatDuration', () => {

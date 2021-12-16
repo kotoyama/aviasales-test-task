@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid'
 import { AirlineCode, Ticket, TicketEntity } from '~/entities'
 
 const PICS_CDN_URL = `${process.env.PICS_CDN_URL}`
+export const CHUNK_SIZE = 5
 
 export const formatDuration = (minutes: number): string => {
   const hh = Math.floor(minutes / 60)

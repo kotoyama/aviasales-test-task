@@ -1,14 +1,3 @@
-import { Ticket } from '../api/tickets'
-
-export const searchIdRes = {
-  body: {
-    searchId: 'eqre',
-  },
-  status: 200,
-  ok: true,
-  headers: {},
-}
-
 export const ticketsRes = {
   body: {
     tickets: [
@@ -260,7 +249,7 @@ export const ticketsRes = {
   headers: {},
 }
 
-export const ticketsMock: Ticket[] = [
+export const ticketsMock = [
   {
     price: 19183,
     carrier: {
@@ -329,8 +318,4 @@ export const segmentMock = {
   date: '2021-09-30T00:18:00.000Z',
   stops: [],
   duration: 1785,
-}
-
-export const timezoneMock = {
-  timeZone: 'Asia/Yekaterinburg',
 }

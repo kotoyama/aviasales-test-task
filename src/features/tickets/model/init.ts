@@ -2,7 +2,7 @@ import { guard, sample } from 'effector'
 
 import { searchCompleted, searchContinues } from '~/features/search'
 import { $activeFilters } from '~/features/filters'
-import { $activeSort } from '~/features/sort'
+import { $activeSort } from '~/features/sorting'
 
 import {
   $limit,
@@ -12,8 +12,8 @@ import {
   $canStartTimer,
   limitChanged,
   timerFx,
-  CHUNK_SIZE,
 } from './private'
+import { CHUNK_SIZE } from '../lib'
 
 $rawTickets.on([searchContinues, searchCompleted], (_, res) => res.body.tickets)
 $loading.on(searchCompleted, () => false)

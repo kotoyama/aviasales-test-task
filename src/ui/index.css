@@ -1,22 +1,6 @@
 @import './theme/normalize.css';
+@import './theme/fonts.css';
 @import './theme/vars.css';
-
-/* fonts */
-@font-face {
-  font-family: 'OpenSans';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./fonts/OpenSans-Regular.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'OpenSans';
-  font-style: normal;
-  font-weight: 600;
-  src: url('./fonts/OpenSans-SemiBold.ttf') format('truetype');
-  font-display: swap;
-}
 
 body {
   font-family: var(--font-family-main);
