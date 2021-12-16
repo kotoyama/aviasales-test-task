@@ -4,8 +4,8 @@ import { SortType, TicketEntity, Transfer } from '~/entities'
 import { ticketsRes } from '~/entities/mocks/tickets'
 import { filterChanged } from '~/features/filters/model/private'
 import { $filtersFn } from '~/features/filters/model/public'
-import { sortChanged } from '~/features/sort/model/private'
-import { $activeSort } from '~/features/sort/model/public'
+import { sortChanged } from '~/features/sorting/model/private'
+import { $activeSort } from '~/features/sorting/model/public'
 import '~/init'
 
 import {

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { SortTabs } from '~/features/sort'
 import { Filters } from '~/features/filters'
+import { SortTabs } from '~/features/sorting'
 import { CurrencySwitcher } from '~/features/currency'
 import { ScrollToTop } from '~/features/scroll-to-top'
 import { TicketsList, LoadingBar } from '~/features/tickets'

@@ -3,7 +3,7 @@ import { root } from '~/root'
 
 import { TicketEntity } from '~/entities'
 import { $filtersFn, $activeFilters } from '~/features/filters'
-import { $activeSort } from '~/features/sort'
+import { $activeSort } from '~/features/sorting'
 
 import { CHUNK_SIZE, normalizeTickets } from '../lib'
 

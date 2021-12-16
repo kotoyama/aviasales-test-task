@@ -2,7 +2,7 @@ import { guard, sample } from 'effector'
 
 import { searchCompleted, searchContinues } from '~/features/search'
 import { $activeFilters } from '~/features/filters'
-import { $activeSort } from '~/features/sort'
+import { $activeSort } from '~/features/sorting'
 
 import {
   $limit,
