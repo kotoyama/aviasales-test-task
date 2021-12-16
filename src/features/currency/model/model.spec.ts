@@ -2,7 +2,7 @@ import { fork, allSettled, Scope, Event } from 'effector'
 
 import { AppGate } from '~/app/model'
 import { CurrencyType } from '~/entities'
-import { currencyRatesRes, currencyRatesMock } from '~/entities/mocks'
+import { currencyRatesRes, currencyRatesMock } from '~/entities/mocks/currency'
 
 import './init'
 import { loadCurrencyRatesFx } from './public'

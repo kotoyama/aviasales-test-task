@@ -1,44 +1,4 @@
-import { Ticket } from '../api/tickets'
-
-const successRes = {
-  status: 200,
-  ok: true,
-  headers: {},
-}
-
-export const searchIdRes = {
-  ...successRes,
-  body: {
-    searchId: 'eqre',
-  },
-}
-
-export const currencyRatesRes = {
-  ...successRes,
-  body: {
-    usd: {
-      code: 'USD',
-      alphaCode: 'USD',
-      numericCode: '840',
-      name: 'U.S. Dollar',
-      rate: 0.013563346601286,
-      date: 'Wed, 15 Dec 2021 11:55:01 GMT',
-      inverseRate: 73.728116621688,
-    },
-    eur: {
-      code: 'EUR',
-      alphaCode: 'EUR',
-      numericCode: '978',
-      name: 'Euro',
-      rate: 0.012023774296956,
-      date: 'Wed, 15 Dec 2021 11:55:01 GMT',
-      inverseRate: 83.168560495447,
-    },
-  },
-}
-
 export const ticketsRes = {
-  ...successRes,
   body: {
     tickets: [
       {
@@ -284,9 +244,12 @@ export const ticketsRes = {
     ],
     stop: true,
   },
+  status: 200,
+  ok: true,
+  headers: {},
 }
 
-export const ticketsMock: Ticket[] = [
+export const ticketsMock = [
   {
     price: 19183,
     carrier: {
@@ -349,35 +312,10 @@ export const ticketsMock: Ticket[] = [
   },
 ]
 
-export const currencyRatesMock = [
-  {
-    type: 'RUB',
-    label: 'RUB',
-    active: true,
-    rate: 1,
-  },
-  {
-    type: 'USD',
-    label: 'USD',
-    active: false,
-    rate: 0.013563346601286,
-  },
-  {
-    type: 'EUR',
-    label: 'EUR',
-    active: false,
-    rate: 0.012023774296956,
-  },
-]
-
 export const segmentMock = {
   origin: 'MOW',
   destination: 'HKT',
   date: '2021-09-30T00:18:00.000Z',
   stops: [],
   duration: 1785,
-}
-
-export const timezoneMock = {
-  timeZone: 'Asia/Yekaterinburg',
 }

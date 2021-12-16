@@ -12,8 +12,8 @@ import {
   $canStartTimer,
   limitChanged,
   timerFx,
-  CHUNK_SIZE,
 } from './private'
+import { CHUNK_SIZE } from '../lib'
 
 $rawTickets.on([searchContinues, searchCompleted], (_, res) => res.body.tickets)
 $loading.on(searchCompleted, () => false)

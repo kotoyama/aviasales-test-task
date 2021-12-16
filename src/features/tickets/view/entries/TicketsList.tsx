@@ -5,6 +5,7 @@ import { useStore } from 'effector-react'
 import { plural } from '~/lib/plural'
 import { Button, lessThan } from '~/ui'
 
+import { CHUNK_SIZE } from '../../lib'
 import { Card, Placeholder } from '../containers'
 import {
   $limit,
@@ -13,7 +14,6 @@ import {
   $canLoadMore,
   $firstChunkLoaded,
   limitChanged,
-  CHUNK_SIZE,
 } from '../../model/private'
 
 export const TicketsList: React.FC = () => {

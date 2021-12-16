@@ -5,9 +5,8 @@ import { TicketEntity } from '~/entities'
 import { $filtersFn, $activeFilters } from '~/features/filters'
 import { $activeSort } from '~/features/sort'
 
-import { normalizeTickets } from '../lib'
+import { CHUNK_SIZE, normalizeTickets } from '../lib'
 
-export const CHUNK_SIZE = 5
 export const tickets = root.domain('tickets')
 
 export const $loading = tickets.store(true)
