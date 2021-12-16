@@ -1,16 +1,25 @@
 import { fork, allSettled, Scope } from 'effector'
 
-import { SortType, TicketEntity } from '~/entities'
+import { SortType, TicketEntity, Transfer } from '~/entities'
 import { ticketsRes } from '~/entities/mocks/tickets'
+import { filterChanged } from '~/features/filters/model/private'
+import { $filtersFn } from '~/features/filters/model/public'
 import { sortChanged } from '~/features/sort/model/private'
 import { $activeSort } from '~/features/sort/model/public'
 import '~/init'
 
+import {
+  $limit,
+  $cache,
+  $loading,
+  $results,
+  $canLoadMore,
+  $firstChunkLoaded,
+  limitChanged,
+} from './private'
 import { CHUNK_SIZE, normalizeTickets } from '../lib'
-import { $limit, $loading, $cache, $results } from './private'
 
 let scope: Scope
-
 const rawTicketsMock = ticketsRes.body.tickets as TicketEntity[]
 
 jest.mock('nanoid', () => ({ nanoid: () => 'kek' }))
@@ -20,19 +29,83 @@ describe('tickets model', () => {
     scope = fork()
     expect(scope.getState($limit)).toBe(CHUNK_SIZE)
     expect(scope.getState($loading)).toBeTruthy()
-    expect(scope.getState($cache)).toStrictEqual([])
+    expect(scope.getState($canLoadMore)).toBeFalsy()
+    expect(scope.getState($firstChunkLoaded)).toBeFalsy()
+    expect(scope.getState($results)).toStrictEqual([])
   })
 
-  test('should sort tickets properly', async () => {
-    scope = fork({
-      values: new Map().set($cache, rawTicketsMock),
+  describe('filled tickets', () => {
+    beforeEach(() => {
+      scope = fork({
+        values: new Map().set($cache, rawTicketsMock),
+      })
     })
-    await allSettled(sortChanged, {
-      params: SortType.OPTIMAL,
-      scope,
+
+    test('should sort tickets properly', async () => {
+      await allSettled(sortChanged, {
+        params: SortType.OPTIMAL,
+        scope,
+      })
+
+      const { comparator } = scope.getState($activeSort)
+      const expected = normalizeTickets(rawTicketsMock).sort(comparator)
+      expect(scope.getState($results)).toStrictEqual(expected)
     })
-    const tickets = normalizeTickets(rawTicketsMock)
-    const { comparator } = scope.getState($activeSort)
-    expect(scope.getState($results)).toStrictEqual(tickets.sort(comparator))
+
+    test('should filter tickets properly', async () => {
+      await allSettled(filterChanged, {
+        params: Transfer.ZERO,
+        scope,
+      })
+
+      const filtersFn = scope.getState($filtersFn)
+      const { comparator } = scope.getState($activeSort)
+      const expected = normalizeTickets(rawTicketsMock)
+        .filter(filtersFn)
+        .sort(comparator)
+      expect(scope.getState($results)).toStrictEqual(expected)
+    })
+
+    test('should check properly if we can load more tickets (target is init tickets)', async () => {
+      await allSettled(limitChanged, { scope })
+      expect(scope.getState($limit)).toBe(CHUNK_SIZE * 2)
+      expect(scope.getState($canLoadMore)).toBeTruthy()
+
+      await allSettled(limitChanged, { scope })
+      expect(scope.getState($limit)).toBe(CHUNK_SIZE * 3)
+      expect(scope.getState($canLoadMore)).toBeFalsy()
+    })
+
+    test('should check properly if we can load more tickets (target is filtered tickets)', async () => {
+      expect(scope.getState($results)).toHaveLength(12)
+
+      await allSettled(filterChanged, {
+        params: Transfer.THREE,
+        scope,
+      })
+      expect(scope.getState($canLoadMore)).toBeTruthy()
+      expect(scope.getState($results)).toHaveLength(10)
+
+      await allSettled(limitChanged, { scope })
+      expect(scope.getState($canLoadMore)).toBeFalsy()
+    })
+
+    test('should reset limit after sorting/filters update', async () => {
+      await allSettled(limitChanged, { scope })
+      await allSettled(sortChanged, {
+        params: SortType.FASTEST,
+        scope,
+      })
+
+      expect(scope.getState($limit)).toBe(CHUNK_SIZE)
+
+      await allSettled(limitChanged, { scope })
+      await allSettled(filterChanged, {
+        params: Transfer.ONE,
+        scope,
+      })
+
+      expect(scope.getState($limit)).toBe(CHUNK_SIZE)
+    })
   })
 })
