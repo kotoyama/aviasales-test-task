@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { ReactComponent as Logo } from '../icons/logo.svg'
-import { ReactComponent as Check } from '../icons/check.svg'
-import { ReactComponent as Arrow } from '../icons/arrow.svg'
+import { ReactComponent as Logo } from '~/ui/icons/logo.svg'
+import { ReactComponent as Check } from '~/ui/icons/check.svg'
+import { ReactComponent as Arrow } from '~/ui/icons/arrow.svg'
 
 interface IconConfig {
   component: React.FC<React.SVGAttributes<SVGElement>>
