@@ -36,14 +36,12 @@ const icons: IconsConfig = {
 
 type Props = {
   icon: keyof typeof icons
-} & React.SVGAttributes<unknown>
+} & React.SVGAttributes<SVGElement>
 
 export const Icon: React.FC<Props> = ({ icon, ...props }) => {
-  const { component, width, height, fill } = icons[icon]
-  const IconComponent = component
-
+  const { component: Component, width, height, fill } = icons[icon]
   return (
-    <IconComponent
+    <Component
       width={width || props.width}
       height={height || props.height}
       fill={fill || props.fill}
