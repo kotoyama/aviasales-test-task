@@ -1,15 +1,15 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { Icon } from './Icon'
+import { Icon } from '../atoms/Icon'
 
-export const Logo: React.FC = () => (
-  <Header>
+export const Header: React.FC = () => (
+  <Wrap>
     <Icon icon="logo" />
-  </Header>
+  </Wrap>
 )
 
-const Header = styled.header`
+const Wrap = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;

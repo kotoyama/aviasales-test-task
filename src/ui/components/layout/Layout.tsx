@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { lessThan } from '../theme'
+import { lessThan } from '~/ui/theme'
 
 export const Layout: React.FC = ({ children }) => (
   <Wrap>
