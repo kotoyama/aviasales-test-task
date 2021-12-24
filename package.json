@@ -99,7 +99,6 @@
     "postcss-syntax": "^0.36.2",
     "prettier": "^2.5.1",
     "react-refresh": "^0.11.0",
-    "react-test-renderer": "^17.0.2",
     "style-loader": "^3.3.1",
     "stylelint": "^14.1.0",
     "stylelint-config-recess-order": "^3.0.0",

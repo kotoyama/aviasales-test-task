@@ -40,12 +40,12 @@ type Props = {
 
 export const Icon: React.FC<Props> = ({ icon, ...props }) => {
   const { component: Component, width, height, fill } = icons[icon]
-  return (
+  return Component ? (
     <Component
       width={width || props.width}
       height={height || props.height}
       fill={fill || props.fill}
       {...props}
     />
-  )
+  ) : null
 }
