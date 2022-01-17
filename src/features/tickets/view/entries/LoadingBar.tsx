@@ -1,23 +1,22 @@
 import React from 'react'
+import { useNProgress } from '@tanem/react-nprogress'
 import { useStore } from 'effector-react'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
+
+import { Progressbar } from '~/ui'
 
 import { $loading } from '../../model/private'
 
-NProgress.configure({ showSpinner: false })
-
 export const LoadingBar: React.FC = () => {
-  const loading = useStore($loading)
+  const isLoading = useStore($loading)
+  const { animationDuration, progress, isFinished } = useNProgress({
+    isAnimating: isLoading,
+  })
 
-  React.useEffect(() => {
-    if (loading) {
-      NProgress.start()
-    } else {
-      NProgress.done()
-    }
-    return () => NProgress.remove()
-  }, [loading])
-
-  return null
+  return (
+    <Progressbar
+      progress={progress}
+      isFinished={isFinished}
+      duration={animationDuration}
+    />
+  )
 }

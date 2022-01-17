@@ -4,21 +4,31 @@ import { styled } from '@linaria/react'
 
 import { lessThan } from '~/ui'
 
+import { useScrollTo } from '../../hooks'
 import { ButtonGroupItem } from '../parts'
 import { $sortGroup, sortChanged } from '../../model/private'
 
-export const ButtonGroup: React.FC = () => (
-  <StyledButtonGroup role="group">
-    {useList($sortGroup, ({ type, label, active }) => (
-      <ButtonGroupItem
-        id={type}
-        label={label}
-        active={active}
-        onClick={() => sortChanged(type)}
-      />
-    ))}
-  </StyledButtonGroup>
-)
+export const ButtonGroup: React.FC = () => {
+  const listRef = React.useRef<HTMLDivElement | null>(null)
+  const scrollToBtn = useScrollTo({
+    containerRef: listRef,
+    baseOffset: 60,
+  })
+
+  return (
+    <StyledButtonGroup ref={listRef} role="group">
+      {useList($sortGroup, ({ type, label, active }) => (
+        <ButtonGroupItem
+          id={type}
+          label={label}
+          active={active}
+          onScrollTo={scrollToBtn}
+          onClick={() => sortChanged(type)}
+        />
+      ))}
+    </StyledButtonGroup>
+  )
+}
 
 const StyledButtonGroup = styled.div`
   display: grid;
