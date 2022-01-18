@@ -8,11 +8,13 @@ import { useScrollTo } from '../../hooks'
 import { ButtonGroupItem } from '../parts'
 import { $sortGroup, sortChanged } from '../../model/private'
 
+const BASE_OFFSET = 60
+
 export const ButtonGroup: React.FC = () => {
   const listRef = React.useRef<HTMLDivElement | null>(null)
   const scrollToBtn = useScrollTo({
     containerRef: listRef,
-    baseOffset: 60,
+    baseOffset: BASE_OFFSET,
   })
 
   return (
