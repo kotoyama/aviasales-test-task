@@ -19,8 +19,8 @@ import {
 export const TicketsList: React.FC = () => {
   const firstChunkLoaded = useStore($firstChunkLoaded)
   const canLoadMore = useStore($canLoadMore)
+  const isLoading = useStore($loading)
   const results = useStore($results)
-  const loading = useStore($loading)
   const limit = useStore($limit)
 
   return (
@@ -31,7 +31,7 @@ export const TicketsList: React.FC = () => {
               .slice(0, limit)
               .map((ticket) => <Card key={ticket.id} ticket={ticket} />)
           : [...Array(CHUNK_SIZE)].map((_, i) => <Placeholder key={i} />)}
-        {results.length === 0 && !loading && (
+        {results.length === 0 && !isLoading && (
           <NotFound>Ничего не найдено</NotFound>
         )}
       </ul>

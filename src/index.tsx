@@ -5,6 +5,9 @@ import { Provider } from 'effector-react/ssr'
 
 import './ui/index.css'
 import { App } from './app'
+import { loadPolyfills } from './polyfills'
+
+loadPolyfills()
 
 const scope = fork()
 

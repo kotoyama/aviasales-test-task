@@ -3,10 +3,13 @@ import { styled } from '@linaria/react'
 
 import { Button } from '~/ui'
 
+import { useInView, ScrollToResult } from '../../hooks'
+
 type Props = {
   id: string
   label: string
   active: boolean
+  onScrollTo: ScrollToResult
   onClick: (id: string) => void
 }
 
@@ -15,14 +18,32 @@ export const ButtonGroupItem: React.FC<Props> = ({
   label,
   active,
   onClick,
+  onScrollTo,
   ...props
-}) => (
-  <GroupItem role="checkbox" aria-checked={active}>
-    <Button id={id} onClick={() => onClick(id)} {...props}>
-      {label}
-    </Button>
-  </GroupItem>
-)
+}) => {
+  const { inView, ref, setRef } = useInView({})
+
+  React.useEffect(() => {
+    if (active && ref.current) {
+      onScrollTo({
+        element: ref.current,
+      })
+    }
+  }, [active, onScrollTo, ref])
+
+  return (
+    <GroupItem
+      ref={setRef}
+      role="checkbox"
+      aria-checked={active}
+      data-in-view={`${inView}`}
+    >
+      <Button id={id} onClick={() => onClick(id)} {...props}>
+        {label}
+      </Button>
+    </GroupItem>
+  )
+}
 
 const GroupItem = styled.div`
   button {
