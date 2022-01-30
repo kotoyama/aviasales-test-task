@@ -1,3 +1,7 @@
+/**
+ * API response entities
+ */
+
 export interface Rate {
   code: string
   alphaCode: string
@@ -10,4 +14,21 @@ export interface Rate {
 
 export type Rates = {
   [key: string]: Rate
+}
+
+/**
+ * Transformed view-ready entities
+ */
+
+export enum CurrencyType {
+  RUB = 'RUB',
+  USD = 'USD',
+  EUR = 'EUR',
+}
+
+export interface Currency {
+  type: CurrencyType
+  label: string
+  active: boolean
+  rate: number
 }

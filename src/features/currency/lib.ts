@@ -1,4 +1,4 @@
-import { Currency, CurrencyType } from './types'
+import { Currency, CurrencyType } from '~/shared/api'
 
 const rub: Currency = {
   type: CurrencyType.RUB,

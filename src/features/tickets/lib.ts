@@ -1,8 +1,6 @@
 import { nanoid } from 'nanoid'
 
-import { AirlineCode, Ticket, TicketEntity } from '~/shared/api'
-
-import { Currency } from '../currency/types'
+import { Currency, AirlineCode, Ticket, TicketEntity } from '~/shared/api'
 
 const PICS_CDN_URL = `${process.env.PICS_CDN_URL}`
 export const CHUNK_SIZE = 5

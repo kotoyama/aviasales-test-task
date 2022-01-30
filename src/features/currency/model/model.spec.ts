@@ -4,10 +4,10 @@ import {
   currencyRatesRes,
   currencyRatesMock,
 } from '~/shared/api/mocks/currency'
+import { CurrencyType } from '~/shared/api'
 import { AppGate } from '~/app/model'
 
 import './init'
-import { CurrencyType } from '../types'
 import { loadCurrencyRatesFx } from './public'
 import { $currencies, $selectedCurrency, currencyChanged } from './private'
 import { currencyGroup, defaultCurrency } from '../lib'

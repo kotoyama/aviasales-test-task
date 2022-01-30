@@ -7,16 +7,16 @@ import { TicketEntity } from '~/shared/api'
 
 import { CHUNK_SIZE, normalizeTickets } from '../lib'
 
-export const tickets = root.domain('tickets')
+export const tickets = root.createDomain('tickets')
 
-export const $loading = tickets.store(true)
-export const $limit = tickets.store(CHUNK_SIZE)
-export const $rawTickets = tickets.store<TicketEntity[]>([])
-export const $cache = tickets.store<TicketEntity[]>([])
+export const $loading = tickets.createStore(true)
+export const $limit = tickets.createStore(CHUNK_SIZE)
+export const $rawTickets = tickets.createStore<TicketEntity[]>([])
+export const $cache = tickets.createStore<TicketEntity[]>([])
 
-export const limitChanged = tickets.event()
+export const limitChanged = tickets.createEvent()
 
-export const timerFx = root.effect({
+export const timerFx = tickets.createEffect({
   handler: <T>(data: T): Promise<T> =>
     new Promise((resolve) => {
       setTimeout(() => resolve(data), 1000)
