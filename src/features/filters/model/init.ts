@@ -1,7 +1,5 @@
 import { forward, sample, split } from 'effector'
 
-import { Transfer } from '~/entities'
-
 import {
   $filters,
   $everyFilterApplied,
@@ -12,6 +10,7 @@ import {
   toggleAllFilter,
   toggleAllFilters,
 } from './private'
+import { Transfer } from '../types'
 
 $filters
   .on(toggleStopsFilter, (filters, type) =>

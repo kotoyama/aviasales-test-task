@@ -1,8 +1,8 @@
 import { fork, allSettled, Scope, Event } from 'effector'
 
 import { AppGate } from '~/app/model'
-import { ticketsRes } from '~/entities/mocks/tickets'
-import { searchIdRes } from '~/entities/mocks/searchId'
+import { ticketsRes } from '~/shared/api/mocks/tickets'
+import { searchIdRes } from '~/shared/api/mocks/searchId'
 import { $rawTickets } from '~/features/tickets/model/private'
 import '~/features/tickets/init'
 

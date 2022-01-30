@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { Box } from '~/ui'
+import { Box } from '~/shared/ui'
 
 export const Wrapper: React.FC = ({ children }) => (
   <Wrap>

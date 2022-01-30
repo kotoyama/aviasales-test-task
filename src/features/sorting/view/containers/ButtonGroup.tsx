@@ -2,7 +2,7 @@ import React from 'react'
 import { useList } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { lessThan } from '~/ui'
+import { lessThan } from '~/shared/ui'
 
 import { useScrollTo } from '../../hooks'
 import { ButtonGroupItem } from '../parts'

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { ReactComponent as Logo } from '~/ui/icons/logo.svg'
-import { ReactComponent as Check } from '~/ui/icons/check.svg'
-import { ReactComponent as Arrow } from '~/ui/icons/arrow.svg'
+import { ReactComponent as Logo } from '~/shared/ui/icons/logo.svg'
+import { ReactComponent as Check } from '~/shared/ui/icons/check.svg'
+import { ReactComponent as Arrow } from '~/shared/ui/icons/arrow.svg'
 
 interface IconConfig {
-  component: React.SFC<React.SVGProps<SVGSVGElement>>
+  component: React.FC<React.SVGProps<SVGSVGElement>>
   width?: number
   height?: number
   fill?: string

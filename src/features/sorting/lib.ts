@@ -1,4 +1,6 @@
-import { Score, Ticket, Sort, SortType } from '~/entities'
+import { Ticket } from '~/shared/api'
+
+import { Score, Sort, SortType } from './types'
 
 /** @description Считаем оптимальность
  * по трём критериям:

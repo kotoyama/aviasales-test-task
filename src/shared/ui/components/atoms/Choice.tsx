@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { greaterThan, lessThan } from '~/ui/theme'
+import { greaterThan, lessThan } from '~/shared/ui/theme'
 
 type Props = {
   label: string

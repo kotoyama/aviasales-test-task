@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { Button } from '~/ui'
+import { Button } from '~/shared/ui'
 
 import { useInView, ScrollToResult } from '../../hooks'
 

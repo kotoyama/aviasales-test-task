@@ -1,11 +1,11 @@
 import { fork, allSettled, Scope } from 'effector'
 
-import { SortType, TicketEntity, Transfer } from '~/entities'
-import { ticketsRes } from '~/entities/mocks/tickets'
 import { filterChanged } from '~/features/filters/model/private'
 import { $filtersFn } from '~/features/filters/model/public'
 import { sortChanged } from '~/features/sorting/model/private'
 import { $activeSort } from '~/features/sorting/model/public'
+import { ticketsRes } from '~/shared/api/mocks/tickets'
+import { TicketEntity } from '~/shared/api'
 import '~/init'
 
 import {
@@ -17,6 +17,8 @@ import {
   $firstChunkLoaded,
   limitChanged,
 } from './private'
+import { SortType } from '../../sorting/types'
+import { Transfer } from '../../filters/types'
 import { CHUNK_SIZE, normalizeTickets } from '../lib'
 
 let scope: Scope

@@ -1,4 +1,4 @@
-import { Ticket } from '../api'
+import { Ticket } from '~/shared/api'
 
 /** @description Вес оптимальности
  * для каждого из полей,

@@ -1,7 +1,5 @@
 import { fork, allSettled, Scope } from 'effector'
 
-import { Transfer } from '~/entities'
-
 import './init'
 import {
   $filters,
@@ -13,6 +11,7 @@ import {
   filterChanged,
 } from './private'
 import { filterGroup } from '../lib'
+import { Transfer } from '../types'
 
 let scope: Scope
 

@@ -25,9 +25,9 @@ export interface Response<T = any> {
   ok: boolean
 }
 
-const api = root.domain('api')
+const api = root.createDomain('api')
 
-export const requestFx = api.effect<Request, Response>({
+export const requestFx = api.createEffect<Request, Response>({
   handler: async ({
     method = Method.GET,
     baseUrl = `${process.env.AVIASALES_API_URL}`,
