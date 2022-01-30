@@ -5,7 +5,7 @@ import { lessThan } from '~/ui'
 
 import { ButtonGroup } from '../containers'
 
-export const SortTabs: React.FC = () => (
+export const SortTabs = () => (
   <StyledTabs>
     <ButtonGroup />
   </StyledTabs>

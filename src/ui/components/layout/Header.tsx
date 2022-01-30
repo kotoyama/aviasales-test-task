@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 
 import { Icon } from '../atoms/Icon'
 
-export const Header: React.FC = () => (
+export const Header = () => (
   <Wrap>
     <Icon icon="logo" />
   </Wrap>

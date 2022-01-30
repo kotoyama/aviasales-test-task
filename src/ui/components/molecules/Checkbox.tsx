@@ -7,7 +7,7 @@ type Props = {
   label: string
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-export const Checkbox: React.FC<Props> = ({ id, checked, label, ...props }) => (
+export const Checkbox = ({ id, checked, label, ...props }: Props) => (
   <Label htmlFor={id}>
     <Input id={id} type="checkbox" checked={checked} {...props} />
     <StyledCheckbox>{checked && <Icon icon="check" />}</StyledCheckbox>

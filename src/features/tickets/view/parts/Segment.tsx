@@ -10,7 +10,7 @@ type Props = {
   segment: SegmentEntity
 }
 
-export const Segment: React.FC<Props> = React.memo(({ segment }) => (
+export const Segment = React.memo(({ segment }: Props) => (
   <Wrap>
     <RowWrap>
       <Title>

@@ -7,7 +7,7 @@ type Props = {
   label: string
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-export const Choice: React.FC<Props> = ({ id, label, ...props }) => (
+export const Choice = ({ id, label, ...props }: Props) => (
   <Wrap>
     <Input id={id} type="radio" {...props} />
     <Label htmlFor={id}>{label}</Label>

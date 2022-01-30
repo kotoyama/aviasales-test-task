@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 
 import { ChoiceGroup } from '../containers'
 
-export const CurrencySwitcher: React.FC = () => (
+export const CurrencySwitcher = () => (
   <Wrap>
     <Title>Валюта</Title>
     <ChoiceGroup />

@@ -10,7 +10,7 @@ type Props = {
   ticket: Ticket
 }
 
-export const Card: React.FC<Props> = React.memo(({ ticket }) => (
+export const Card = React.memo(({ ticket }: Props) => (
   <Wrapper>
     <Header price={ticket.price} logo={ticket.logo} carrier={ticket.carrier} />
     <Segments>

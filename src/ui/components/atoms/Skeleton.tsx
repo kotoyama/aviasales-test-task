@@ -7,13 +7,13 @@ type Props = {
   marginBottom?: string
 } & React.HTMLAttributes<HTMLDivElement>
 
-export const Skeleton: React.FC<Props> = ({
+export const Skeleton = ({
   width,
   height,
   style,
   marginBottom,
   ...props
-}) => (
+}: Props) => (
   <StyledSkeleton
     style={{
       width,

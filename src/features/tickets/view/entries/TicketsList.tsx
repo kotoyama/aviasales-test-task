@@ -16,7 +16,7 @@ import {
   limitChanged,
 } from '../../model/private'
 
-export const TicketsList: React.FC = () => {
+export const TicketsList = () => {
   const firstChunkLoaded = useStore($firstChunkLoaded)
   const canLoadMore = useStore($canLoadMore)
   const isLoading = useStore($loading)

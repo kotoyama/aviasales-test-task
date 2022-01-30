@@ -6,7 +6,7 @@ import { Choice, greaterThan } from '~/ui'
 
 import { $currencies, currencyChanged } from '../../model/private'
 
-export const ChoiceGroup: React.FC = () => (
+export const ChoiceGroup = () => (
   <StyledChoiceGroup role="group">
     {useList($currencies, ({ label, active, type }) => (
       <Choice

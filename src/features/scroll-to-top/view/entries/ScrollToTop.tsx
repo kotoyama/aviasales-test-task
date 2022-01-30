@@ -4,7 +4,7 @@ import { styled } from '@linaria/react'
 import { Icon } from '~/ui'
 import { classNames } from '~/lib/classNames'
 
-export const ScrollToTop: React.FC = () => {
+export const ScrollToTop = () => {
   const [showButton, setShowButton] = React.useState(false)
 
   const onScrollHandler = React.useCallback(() => {

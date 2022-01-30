@@ -11,7 +11,7 @@ type ProgressProps = {
   isFinished: boolean
 }
 
-export const LoadingBar: React.FC = () => {
+export const LoadingBar = () => {
   const isLoading = useStore($loading)
   const { animationDuration, progress, isFinished } = useNProgress({
     isAnimating: isLoading,

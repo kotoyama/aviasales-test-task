@@ -10,7 +10,7 @@ import { $sortGroup, sortChanged } from '../../model/private'
 
 const BASE_OFFSET = 60
 
-export const ButtonGroup: React.FC = () => {
+export const ButtonGroup = () => {
   const listRef = React.useRef<HTMLDivElement | null>(null)
   const scrollToBtn = useScrollTo({
     containerRef: listRef,

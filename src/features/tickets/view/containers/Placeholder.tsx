@@ -5,7 +5,7 @@ import { Skeleton } from '~/ui'
 
 import { Wrapper } from '../parts'
 
-export const Placeholder: React.FC = () => (
+export const Placeholder = () => (
   <Wrapper>
     <Skeleton width="40%" height="28px" />
     <InnerWrap>
