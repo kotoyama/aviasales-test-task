@@ -1,11 +1,10 @@
 import { fork, allSettled, Scope } from 'effector'
 
-import { SortType } from '~/shared/entities'
-
 import './init'
 import { $activeSort } from './public'
 import { $sortGroup, sortChanged } from './private'
 import { sortGroup, defaultSort } from '../lib'
+import { SortType } from '../types'
 
 let scope: Scope
 

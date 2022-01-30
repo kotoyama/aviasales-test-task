@@ -1,13 +1,13 @@
 import { fork, allSettled, Scope, Event } from 'effector'
 
-import { AppGate } from '~/app/model'
-import { CurrencyType } from '~/shared/entities'
 import {
   currencyRatesRes,
   currencyRatesMock,
-} from '~/shared/entities/mocks/currency'
+} from '~/shared/api/mocks/currency'
+import { AppGate } from '~/app/model'
 
 import './init'
+import { CurrencyType } from '../types'
 import { loadCurrencyRatesFx } from './public'
 import { $currencies, $selectedCurrency, currencyChanged } from './private'
 import { currencyGroup, defaultCurrency } from '../lib'

@@ -1,9 +1,9 @@
 import { combine } from 'effector'
 import { root } from '~/root'
 
-import { TicketEntity } from '~/shared/entities'
 import { $filtersFn, $activeFilters } from '~/features/filters'
 import { $activeSort } from '~/features/sorting'
+import { TicketEntity } from '~/shared/api'
 
 import { CHUNK_SIZE, normalizeTickets } from '../lib'
 

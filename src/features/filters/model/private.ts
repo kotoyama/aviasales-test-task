@@ -1,8 +1,7 @@
 import { root } from '~/root'
 
-import { Filter, Transfer } from '~/shared/entities'
-
 import { filterGroup } from '../lib'
+import { Filter, Transfer } from '../types'
 
 export const filters = root.domain('filters')
 

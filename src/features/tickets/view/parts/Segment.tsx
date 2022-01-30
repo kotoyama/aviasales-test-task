@@ -1,8 +1,8 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { SegmentEntity } from '~/shared/entities'
-import { plural } from '~/lib/plural'
+import { plural } from '~/shared/lib/plural'
+import { SegmentEntity } from '~/shared/api'
 
 import { formatDuration, getTimeInterval } from '../../lib'
 

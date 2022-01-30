@@ -1,8 +1,7 @@
 import { root } from '~/root'
 
-import { SortType, Sort } from '~/shared/entities'
-
 import { sortGroup } from '../lib'
+import { Sort, SortType } from '../types'
 
 const sorting = root.domain('sort')
 

@@ -1,4 +1,4 @@
-import { Ticket } from '../api'
+import { Ticket } from '~/shared/api'
 
 export enum Transfer {
   ALL = -1,

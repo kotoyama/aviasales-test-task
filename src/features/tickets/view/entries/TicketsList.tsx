@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from '@linaria/react'
 import { useStore } from 'effector-react'
 
-import { plural } from '~/lib/plural'
+import { plural } from '~/shared/lib/plural'
 import { Button, lessThan } from '~/shared/ui'
 
 import { CHUNK_SIZE } from '../../lib'

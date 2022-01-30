@@ -1,8 +1,8 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
+import { classNames } from '~/shared/lib/classNames'
 import { Icon } from '~/shared/ui'
-import { classNames } from '~/lib/classNames'
 
 export const ScrollToTop = () => {
   const [showButton, setShowButton] = React.useState(false)

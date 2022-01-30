@@ -1,7 +1,6 @@
 import { root } from '~/root'
 
-import { Currency, CurrencyType } from '~/shared/entities'
-
+import { Currency, CurrencyType } from '../types'
 import { currencyGroup, defaultCurrency } from '../lib'
 
 export const currency = root.domain('currency')

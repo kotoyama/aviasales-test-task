@@ -1,4 +1,4 @@
-import { segmentMock } from '~/shared/entities/mocks/tickets'
+import { segmentMock } from '~/shared/api/mocks/tickets'
 
 import { getTimeFromDate, formatDuration, getTimeInterval } from './lib'
 

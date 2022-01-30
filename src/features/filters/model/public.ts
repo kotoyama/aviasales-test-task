@@ -1,6 +1,6 @@
 import { root } from '~/root'
 
-import { Ticket } from '~/shared/entities'
+import { Ticket } from '~/shared/api'
 
 import { $filters } from './private'
 

@@ -1,9 +1,23 @@
 import { nanoid } from 'nanoid'
 
-import { AirlineCode, Ticket, TicketEntity } from '~/shared/entities'
+import { AirlineCode, Ticket, TicketEntity } from '~/shared/api'
+
+import { Currency } from '../currency/types'
 
 const PICS_CDN_URL = `${process.env.PICS_CDN_URL}`
 export const CHUNK_SIZE = 5
+
+export const formatPrice = (
+  price: number,
+  currency: Currency,
+  format = 'Ru-ru',
+): string =>
+  Intl.NumberFormat(format, {
+    style: 'currency',
+    currency: currency.type,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price * currency.rate)
 
 export const formatDuration = (minutes: number): string => {
   const hh = Math.floor(minutes / 60)
