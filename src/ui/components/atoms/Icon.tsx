@@ -5,7 +5,7 @@ import { ReactComponent as Check } from '~/ui/icons/check.svg'
 import { ReactComponent as Arrow } from '~/ui/icons/arrow.svg'
 
 interface IconConfig {
-  component: React.FC<React.SVGAttributes<SVGElement>>
+  component: React.SFC<React.SVGProps<SVGSVGElement>>
   width?: number
   height?: number
   fill?: string
@@ -38,7 +38,7 @@ type Props = {
   icon: keyof typeof icons
 } & React.SVGAttributes<SVGElement>
 
-export const Icon: React.FC<Props> = ({ icon, ...props }) => {
+export const Icon = ({ icon, ...props }: Props) => {
   const { component: Component, width, height, fill } = icons[icon]
   return Component ? (
     <Component

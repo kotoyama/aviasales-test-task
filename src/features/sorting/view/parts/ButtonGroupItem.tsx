@@ -13,14 +13,14 @@ type Props = {
   onClick: (id: string) => void
 }
 
-export const ButtonGroupItem: React.FC<Props> = ({
+export const ButtonGroupItem = ({
   id,
   label,
   active,
   onClick,
   onScrollTo,
   ...props
-}) => {
+}: Props) => {
   const { inView, ref, setRef } = useInView({})
 
   React.useEffect(() => {

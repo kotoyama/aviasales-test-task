@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 
 import { CheckboxGroup } from '../containers'
 
-export const Filters: React.FC = () => (
+export const Filters = () => (
   <Wrap>
     <Title>Количество пересадок</Title>
     <CheckboxGroup />

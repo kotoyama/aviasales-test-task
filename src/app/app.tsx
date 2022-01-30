@@ -10,7 +10,7 @@ import { Container, Layout, Sidebar, Header } from '~/ui'
 import '../init'
 import { AppGate } from './model'
 
-export const App: React.FC = () => (
+export const App = () => (
   <>
     <AppGate />
     <Layout>

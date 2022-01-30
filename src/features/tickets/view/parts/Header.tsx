@@ -7,7 +7,7 @@ import { formatPrice } from '~/lib/price'
 
 type Props = Pick<Ticket, 'price' | 'logo' | 'carrier'>
 
-export const Header: React.FC<Props> = ({ price, logo, carrier }) => {
+export const Header = ({ price, logo, carrier }: Props) => {
   const currency = useCurrency()
   return (
     <Wrap>
