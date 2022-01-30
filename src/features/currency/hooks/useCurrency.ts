@@ -1,6 +1,6 @@
 import { useStore } from 'effector-react'
 
-import { Currency } from '~/entities'
+import { Currency } from '~/shared/entities'
 
 import { $selectedCurrency } from '../model/private'
 

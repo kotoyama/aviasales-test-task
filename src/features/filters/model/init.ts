@@ -1,6 +1,6 @@
 import { forward, sample, split } from 'effector'
 
-import { Transfer } from '~/entities'
+import { Transfer } from '~/shared/entities'
 
 import {
   $filters,

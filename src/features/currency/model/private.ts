@@ -1,6 +1,6 @@
 import { root } from '~/root'
 
-import { Currency, CurrencyType } from '~/entities'
+import { Currency, CurrencyType } from '~/shared/entities'
 
 import { currencyGroup, defaultCurrency } from '../lib'
 

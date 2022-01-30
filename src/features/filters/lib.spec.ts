@@ -1,5 +1,5 @@
-import { Ticket } from '~/entities'
-import { ticketsMock } from '~/entities/mocks/tickets'
+import { Ticket } from '~/shared/entities'
+import { ticketsMock } from '~/shared/entities/mocks/tickets'
 
 import { hasAmountOfStops } from './lib'
 

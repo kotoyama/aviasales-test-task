@@ -1,6 +1,6 @@
 import { fork, allSettled, Scope } from 'effector'
 
-import { Transfer } from '~/entities'
+import { Transfer } from '~/shared/entities'
 
 import './init'
 import {

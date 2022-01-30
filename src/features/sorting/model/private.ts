@@ -1,6 +1,6 @@
 import { root } from '~/root'
 
-import { SortType, Sort } from '~/entities'
+import { SortType, Sort } from '~/shared/entities'
 
 import { sortGroup } from '../lib'
 

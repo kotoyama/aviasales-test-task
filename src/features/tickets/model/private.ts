@@ -1,7 +1,7 @@
 import { combine } from 'effector'
 import { root } from '~/root'
 
-import { TicketEntity } from '~/entities'
+import { TicketEntity } from '~/shared/entities'
 import { $filtersFn, $activeFilters } from '~/features/filters'
 import { $activeSort } from '~/features/sorting'
 

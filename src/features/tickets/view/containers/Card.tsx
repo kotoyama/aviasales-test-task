@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from '@linaria/react'
 import { nanoid } from 'nanoid'
 
-import { Ticket } from '~/entities'
+import { Ticket } from '~/shared/entities'
 
 import { Header, Segment, Wrapper } from '../parts'
 

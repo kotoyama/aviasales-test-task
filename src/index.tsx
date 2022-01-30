@@ -3,9 +3,9 @@ import { render } from 'react-dom'
 import { fork } from 'effector'
 import { Provider } from 'effector-react/ssr'
 
-import './ui/index.css'
 import { App } from './app'
 import { loadPolyfills } from './polyfills'
+import './shared/ui/index.css'
 
 loadPolyfills()
 

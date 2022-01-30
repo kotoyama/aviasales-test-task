@@ -1,4 +1,4 @@
-import { Ticket, Transfer, Filter, SegmentEntity } from '~/entities'
+import { Ticket, Transfer, Filter, SegmentEntity } from '~/shared/entities'
 import { plural } from '~/lib/plural'
 
 const generateLabel = (stops: number) =>

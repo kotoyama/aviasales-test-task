@@ -1,6 +1,6 @@
 import { root } from '~/root'
 
-import { Filter, Transfer } from '~/entities'
+import { Filter, Transfer } from '~/shared/entities'
 
 import { filterGroup } from '../lib'
 

@@ -1,6 +1,6 @@
 import { fork, allSettled, Scope } from 'effector'
 
-import { SortType } from '~/entities'
+import { SortType } from '~/shared/entities'
 
 import './init'
 import { $activeSort } from './public'

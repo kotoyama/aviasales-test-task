@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { Icon } from '~/ui'
+import { Icon } from '~/shared/ui'
 import { classNames } from '~/lib/classNames'
 
 export const ScrollToTop = () => {

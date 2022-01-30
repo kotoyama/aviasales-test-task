@@ -2,7 +2,7 @@ import React from 'react'
 import { useList } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { Choice, greaterThan } from '~/ui'
+import { Choice, greaterThan } from '~/shared/ui'
 
 import { $currencies, currencyChanged } from '../../model/private'
 

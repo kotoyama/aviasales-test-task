@@ -1,6 +1,6 @@
 import { attach, Effect } from 'effector'
 
-import { Rates } from '~/entities'
+import { Rates } from '~/shared/entities'
 import { Response, requestFx } from '~/lib/request'
 
 export const getCurrencyRatesReqFx: Effect<void, Response<Rates>> = attach({

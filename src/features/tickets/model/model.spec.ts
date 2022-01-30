@@ -1,7 +1,7 @@
 import { fork, allSettled, Scope } from 'effector'
 
-import { SortType, TicketEntity, Transfer } from '~/entities'
-import { ticketsRes } from '~/entities/mocks/tickets'
+import { SortType, TicketEntity, Transfer } from '~/shared/entities'
+import { ticketsRes } from '~/shared/entities/mocks/tickets'
 import { filterChanged } from '~/features/filters/model/private'
 import { $filtersFn } from '~/features/filters/model/public'
 import { sortChanged } from '~/features/sorting/model/private'

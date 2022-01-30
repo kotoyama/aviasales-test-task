@@ -2,7 +2,7 @@ import React from 'react'
 import { useList } from 'effector-react'
 import { styled } from '@linaria/react'
 
-import { Checkbox } from '~/ui'
+import { Checkbox } from '~/shared/ui'
 
 import { $filters, filterChanged } from '../../model/private'
 

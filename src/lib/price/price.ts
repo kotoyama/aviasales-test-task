@@ -1,4 +1,4 @@
-import { Currency } from '~/entities'
+import { Currency } from '~/shared/entities'
 
 export const formatPrice = (
   price: number,

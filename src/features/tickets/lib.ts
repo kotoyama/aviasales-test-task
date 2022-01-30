@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 
-import { AirlineCode, Ticket, TicketEntity } from '~/entities'
+import { AirlineCode, Ticket, TicketEntity } from '~/shared/entities'
 
 const PICS_CDN_URL = `${process.env.PICS_CDN_URL}`
 export const CHUNK_SIZE = 5

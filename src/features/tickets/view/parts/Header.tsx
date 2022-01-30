@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@linaria/react'
 
-import { Ticket } from '~/entities'
+import { Ticket } from '~/shared/entities'
 import { useCurrency } from '~/features/currency'
 import { formatPrice } from '~/lib/price'
 
